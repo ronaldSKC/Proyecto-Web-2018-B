@@ -1,6 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
-@Entity()
+@Entity() 
+
 export class FundacionEntity{
     @PrimaryGeneratedColumn({
         name: 'id_mascota'
