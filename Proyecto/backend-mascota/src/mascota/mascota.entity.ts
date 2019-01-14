@@ -1,4 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { MascotaSedeEntity } from "src/mascota-sede/mascotaSede.entity";
+import { type } from "os";
 
 @Entity()
 export class MascotaEntity{
@@ -28,4 +30,9 @@ export class MascotaEntity{
         name: 'tamanio_mascota'
     })
     tamanioMascota: string;
+    @OneToMany(type=>MascotaSedeEntity,
+        mascotaSede => mascotaSede.mascotas
+        
+        )
+    mascotaSede: MascotaSedeEntity
 }
