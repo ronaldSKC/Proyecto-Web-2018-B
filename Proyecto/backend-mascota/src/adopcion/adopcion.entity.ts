@@ -1,7 +1,9 @@
 
 import {Column, Entity, Index, PrimaryGeneratedColumn, ManyToOne} from "typeorm";
 import { MascotaSedeEntity } from "src/mascota-sede/mascotaSede.entity";
-@Entity()
+import { type } from "os";
+import { UsuarioEntity } from "src/usuario/usuario.entity";
+@Entity('adopcion')
 export class AdopcionEntity {
     @PrimaryGeneratedColumn({
         name : 'id_solicitud'
@@ -23,10 +25,11 @@ export class AdopcionEntity {
         name : 'estado_solicitud'
     })
     estadoSolicitud : string;
-    @ManyToOne(
-        type => MascotaSedeEntity,
-        mascotaSede => mascotaSede.adopciones
-    )
-    mascotaSede : MascotaSedeEntity;
+    @ManyToOne(type => MascotaSedeEntity,
+        mascotaSede => mascotaSede.idMascotaSede)
+    mascotaSede: MascotaSedeEntity;
+    @ManyToOne(type => UsuarioEntity,
+        usuario => usuario.idUsuario)
+    usuario: UsuarioEntity;
 
 }

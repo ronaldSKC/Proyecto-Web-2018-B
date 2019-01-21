@@ -2,15 +2,19 @@ import {Column, Entity, Index, PrimaryGeneratedColumn, OneToMany, ManyToOne} fro
 import { type } from "os";
 import { AdopcionEntity } from "src/adopcion/adopcion.entity";
 import { MascotaEntity } from "src/mascota/mascota.entity";
-@Entity()
+import { FundacionEntity } from "src/fundacion/fundacion.entity";
+import { SedesEntity } from "src/sedes/sedes.entity";
+@Entity('mascota_sede')
 export class MascotaSedeEntity {
-    @OneToMany(
-        type => AdopcionEntity,
-        adopcion => adopcion.mascotaSede
-    )
-    adopciones: AdopcionEntity[];
-    @ManyToOne(
-        type=>MascotaEntity,
-        mascota => mascota.mascotaSede)
-    mascotas : MascotaSedeEntity[];
+    @PrimaryGeneratedColumn()
+    idMascotaSede: number;
+    @ManyToOne(type=> MascotaEntity,
+        mascota=>mascota.idMascota)
+    mascota:MascotaEntity;
+    @ManyToOne(type=> SedesEntity,
+        sede=>sede.idSedes)
+    sede:MascotaEntity;
+    @OneToMany(type =>AdopcionEntity,
+        adopcion => adopcion.idSolicitud)
+    adopciones : AdopcionEntity[]
 }

@@ -1,8 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne } from "typeorm";
 import { MascotaSedeEntity } from "src/mascota-sede/mascotaSede.entity";
 import { type } from "os";
+import { RazaEntity } from "src/raza/raza.entity";
+import { FundacionEntity } from "src/fundacion/fundacion.entity";
 
-@Entity()
+@Entity('mascota')
 export class MascotaEntity{
     @PrimaryGeneratedColumn()
     idMascota: number;
@@ -30,9 +32,16 @@ export class MascotaEntity{
         name: 'tamanio_mascota'
     })
     tamanioMascota: string;
+    @ManyToOne(
+        type => RazaEntity,
+        raza => raza.idRaza)
+    raza : RazaEntity;
+
+    @ManyToOne(type=> FundacionEntity,
+        fundacion=>fundacion.idFundacion)
+    fundacion: FundacionEntity;
+
     @OneToMany(type=>MascotaSedeEntity,
-        mascotaSede => mascotaSede.mascotas
-        
-        )
-    mascotaSede: MascotaSedeEntity
+        mascotaSede=>mascotaSede.idMascotaSede)
+    mascotasSedes: MascotaSedeEntity[];
 }

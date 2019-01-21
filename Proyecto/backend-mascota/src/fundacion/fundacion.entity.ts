@@ -1,12 +1,15 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { MascotaEntity } from "src/mascota/mascota.entity";
+import { MascotaSedeEntity } from "src/mascota-sede/mascotaSede.entity";
+import { SedesEntity } from "src/sedes/sedes.entity";
 
-@Entity() 
+@Entity('fundacion') 
 
 export class FundacionEntity{
     @PrimaryGeneratedColumn({
-        name: 'id_mascota'
+        name: 'id_fundacion'
     })
-    idMascota : number;
+    idFundacion : number;
     @Column({
         name: 'nombre_fundacion'
     })
@@ -31,4 +34,10 @@ export class FundacionEntity{
         name: 'tamanio_fundacion'
     })
     tamanioFundacion: string;
+    @OneToMany(type=> MascotaEntity,
+        mascota=> mascota.idMascota)
+    mascotas:MascotaEntity[]
+    @OneToMany(type=> SedesEntity,
+        sede=> sede.idSedes)
+    sedes:MascotaEntity[]
 }
