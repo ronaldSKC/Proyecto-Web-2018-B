@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm";
 import { type } from "os";
-import { AnimalEntity } from "src/animal/animal.entity";
 import { MascotaEntity } from "src/mascota/mascota.entity";
+import {TipoMascotaEntity} from "../tipoMascota/tipo_mascota.entity";
 
 @Entity('raza')
 export class RazaEntity{
@@ -13,10 +13,12 @@ export class RazaEntity{
         name : 'nombre_raza'
     })
     nombreRaza: string;
+
     @ManyToOne(
-        type=>AnimalEntity,
-        animal=> animal.idAnimal)
-    animal: RazaEntity
+        type=>TipoMascotaEntity,
+        tipo_mascota=> tipo_mascota.razas)
+    tipo_mascota: TipoMascotaEntity;
+
     @OneToMany(
         type=> MascotaEntity,
         mascota => mascota.idMascota)

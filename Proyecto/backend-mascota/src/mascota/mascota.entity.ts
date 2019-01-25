@@ -6,32 +6,52 @@ import { FundacionEntity } from "src/fundacion/fundacion.entity";
 
 @Entity('mascota')
 export class MascotaEntity{
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn({
+        name: 'id_mascota'
+    })
     idMascota: number;
+
     @Column({
-        name: ' nombre_mascota'
+        name: ' nombre_mascota',
+        type: 'varchar',
+        length: 30
     })
     nombreMascota: string;
+
     @Column({
-        name: 'genero_mascota'
+        name: 'genero_mascota',
+        type: 'varchar',
+        length: 10
     })
     generoMascota: string;
+
     @Column({
-        name:'edad_mascota'
+        name:'edad_mascota',
+        type: "varchar",
+        length: 2,
     })
     edadMascota: string;
+
     @Column({
-        name: 'descripcion_mascota'
+        name:'descripcion_mascota',
+        type: "varchar",
+        length: 200,
     })
     descripcionMascota: string;
+
     @Column({
-        name: 'estado_mascota'
+        name: 'estado_mascota',
+        type: 'boolean',
     })
     estadoMascota:string;
+
     @Column({
-        name: 'tamanio_mascota'
+        name: 'tamanio_mascota',
+        type: 'varchar',
+        length: 3,
     })
     tamanioMascota: string;
+
     @ManyToOne(
         type => RazaEntity,
         raza => raza.idRaza)
