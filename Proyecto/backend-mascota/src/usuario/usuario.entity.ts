@@ -9,33 +9,52 @@ export class UsuarioEntity{
         name: 'id_usuario'
     })
     idUsuario: number;
+
     @Column({
-        name: 'nickname'
+        name: 'nickname',
+        type: 'varchar',
+        length: 30
     })
     nickname: string;
     @Column({
-        name: 'nombre_usuario'
+        name: 'nombre_completo',
+        type: 'varchar',
+        length: 40
     })
     nombreCompletoUsuario: string;
+
     @Column({
-        name: 'direccion_usuario'
+        name: 'direccion_usuario',
+        type: 'varchar',
+        length: 60
     })
     direccionUsuario: string;
+
     @Column({
-        name: 'telefono_usuario'
+        name: 'telefono_usuario',
+        type: 'varchar',
+        length: 10
     })
     telefonoUsuario: string;
+
     @Column({
-        name: 'email_usuario'
+        name: 'email_usuario',
+        type: 'varchar',
+        length: 40
     })
     emailUsuario: string;
+
     @Column({
-        name: 'password_usuario'
+        name: 'password_usuario',
+        type: 'varchar',
+        length: 20
     })
     passwordUsuario: string;
+
     @OneToMany(type => AdopcionEntity,
-        adopcion => adopcion.idSolicitud)
+        adopcion => adopcion.usuario)
     adopciones: AdopcionEntity[]
+
     @OneToMany(type => RolPorUsuarioEntity,
         rolPorUsuario => rolPorUsuario.idRolPorUsuario)
     rolesPorUsuarios: RolPorUsuarioEntity[]

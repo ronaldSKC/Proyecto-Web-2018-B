@@ -1,5 +1,5 @@
 import { Module } from "@nestjs/common";
-import { Tipo_mascotaEntity } from "./tipo_mascota.entity";
+import { EspecieEntity } from "./especie.entity";
 import {TypeOrmModule} from '@nestjs/typeorm';
 
 @Module({
@@ -7,7 +7,7 @@ import {TypeOrmModule} from '@nestjs/typeorm';
         TypeOrmModule
             .forFeature(
                 [
-                    Tipo_mascotaEntity
+                    EspecieEntity
                 ]
             )
     ],
@@ -21,6 +21,6 @@ import {TypeOrmModule} from '@nestjs/typeorm';
 
     ]
 })
-export class TipoMascotaModule{
+export class EspecieModule{
 
 }

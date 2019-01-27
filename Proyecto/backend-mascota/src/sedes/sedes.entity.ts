@@ -7,16 +7,37 @@ import { FundacionEntity } from "src/fundacion/fundacion.entity";
 export class SedesEntity{
     @PrimaryGeneratedColumn ()
     idSedes: number;
-    @Column()
+
+    @Column({
+        name: 'calle_principal',
+        type: 'varchar',
+        length: 40
+    })
     callePrincipal: string;
-    @Column()
+
+    @Column({
+        name: 'calle_secundaria',
+        type: 'varchar',
+        length: 40
+    })
     calleSecundaria: string;
-    @Column()
+
+    @Column(
+        {
+            name: 'referencia',
+            type: 'varchar',
+            length: 40
+        }
+    )
     referencia: string;
-    @OneToMany(type => MascotaSedeEntity,
-        mascotaSede => mascotaSede.idMascotaSede)
+
+    @OneToMany(
+        type => MascotaSedeEntity,
+        mascotaSede => mascotaSede.sede)
     mascotasSedes: MascotaSedeEntity[]
-    @ManyToOne(type => FundacionEntity,
-        fundacion => fundacion.idFundacion)
+
+    @ManyToOne(
+        type => FundacionEntity,
+        fundacion => fundacion.sedes)
     fundacion : FundacionEntity;
 }

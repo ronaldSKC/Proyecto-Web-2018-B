@@ -9,27 +9,41 @@ export class AdopcionEntity {
         name : 'id_solicitud'
     })
     idSolicitud : number;
+
     @Column({
-        name : 'telefono'
+        name : 'telefono',
+        type: 'varchar',
+        length: 10
     })
     telefono : string;
+
     @Column({
-        name : 'telefono_celular'
+        name : 'telefono_celular',
+        type: 'varchar',
+        length: 10
     })
     telefonoCelular : string;
+
     @Column({
-        name : 'fecha_solicitud'
+        name : 'fecha_solicitud',
+        type: 'varchar',
     })
     fechaSolicitud : string;
+
     @Column({
-        name : 'estado_solicitud'
+        name : 'estado_solicitud',
+        type: 'boolean',
     })
     estadoSolicitud : string;
-    @ManyToOne(type => MascotaSedeEntity,
-        mascotaSede => mascotaSede.idMascotaSede)
+
+    @ManyToOne(
+        type => MascotaSedeEntity,
+        mascotaSede => mascotaSede.adopciones)
     mascotaSede: MascotaSedeEntity;
-    @ManyToOne(type => UsuarioEntity,
-        usuario => usuario.idUsuario)
+
+    @ManyToOne(
+        type => UsuarioEntity,
+        usuario => usuario.adopciones)
     usuario: UsuarioEntity;
 
 }

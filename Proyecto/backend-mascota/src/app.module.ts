@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import { AdopcionEntity } from './adopcion/adopcion.entity';
-import { TipoMascotaEntity } from './tipoMascota/tipo_mascota.entity';
+import {EspecieEntity} from './especie/especie.entity';
 import { FundacionEntity } from './fundacion/fundacion.entity';
 import { MascotaEntity } from './mascota/mascota.entity';
 import { MascotaSedeEntity } from './mascota-sede/mascotaSede.entity';
@@ -27,7 +27,7 @@ import { UsuarioEntity } from './usuario/usuario.entity';
         dropSchema: false,
         entities: [
           AdopcionEntity,
-          TipoMascotaEntity,
+          EspecieEntity,
           FundacionEntity,
           MascotaEntity,
           MascotaSedeEntity,

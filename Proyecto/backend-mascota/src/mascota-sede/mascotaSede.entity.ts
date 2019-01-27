@@ -8,13 +8,19 @@ import { SedesEntity } from "src/sedes/sedes.entity";
 export class MascotaSedeEntity {
     @PrimaryGeneratedColumn()
     idMascotaSede: number;
-    @ManyToOne(type=> MascotaEntity,
-        mascota=>mascota.idMascota)
+
+    @ManyToOne(
+        type=> MascotaEntity,
+        mascota=>mascota.mascotasSedes)
     mascota:MascotaEntity;
-    @ManyToOne(type=> SedesEntity,
+
+    @ManyToOne(
+        type=> SedesEntity,
         sede=>sede.idSedes)
     sede:MascotaEntity;
+
     @OneToMany(type =>AdopcionEntity,
-        adopcion => adopcion.idSolicitud)
+        adopcion => adopcion.mascotaSede)
     adopciones : AdopcionEntity[]
 }
+
