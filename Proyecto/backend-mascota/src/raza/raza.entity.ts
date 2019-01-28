@@ -9,6 +9,7 @@ export class RazaEntity{
         name:'id_raza'
     })
     idRaza: number;
+
     @Column({
         name : 'nombre_raza'
     })

@@ -13,13 +13,14 @@ import { RolPorUsuarioEntity } from './rol-por-usuario/rolPorUsuario.entity';
 import { SedesEntity } from './sedes/sedes.entity';
 import { TipoUsuarioEntity } from './tipo-usuario/tipoUsuario.entity';
 import { UsuarioEntity } from './usuario/usuario.entity';
+import {MascotaModule} from "./mascota/mascota.module";
 @Module({
   imports: [
     TypeOrmModule.forRoot(
       {
         type: 'mysql',
         host: 'localhost',
-        port: 32769,
+        port: 32771,
         username: 'web',
         password: '12345678',
         database: 'bddweb',
@@ -38,8 +39,7 @@ import { UsuarioEntity } from './usuario/usuario.entity';
           TipoUsuarioEntity,
           UsuarioEntity
         ]
-      }
-    )
+      }), MascotaModule
   ],
   controllers: [AppController],
   providers: [AppService],
