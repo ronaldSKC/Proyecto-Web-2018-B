@@ -7,11 +7,14 @@ export class RolEntity{
         name: 'id_rol'
     })
     idRol: number;
+
     @Column({
-        name: 'nombre_tipo_usuario'
+        name: 'nombre_rol'
     })
     nombreRol: string;
-    @OneToMany(type => RolPorUsuarioEntity,
-        rolPorUsuario => rolPorUsuario.idRolPorUsuario)
+
+    @OneToMany(
+        type => RolPorUsuarioEntity,
+        rolPorUsuario => rolPorUsuario.rol)
     rolesPorUsuarios : RolPorUsuarioEntity[]
 }

@@ -51,11 +51,12 @@ export class UsuarioEntity{
     })
     passwordUsuario: string;
 
-    @OneToMany(type => AdopcionEntity,
+    @OneToMany(
+        type => AdopcionEntity,
         adopcion => adopcion.usuario)
-    adopciones: AdopcionEntity[]
+    adopciones: AdopcionEntity[];
 
     @OneToMany(type => RolPorUsuarioEntity,
-        rolPorUsuario => rolPorUsuario.idRolPorUsuario)
+        rolPorUsuario => rolPorUsuario.usuario)
     rolesPorUsuarios: RolPorUsuarioEntity[]
 }
