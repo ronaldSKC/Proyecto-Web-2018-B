@@ -4,9 +4,7 @@ import { AppService } from './app.service';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import { AdopcionEntity } from './adopcion/adopcion.entity';
 import {EspecieEntity} from './especie/especie.entity';
-
 import { MascotaEntity } from './mascota/mascota.entity';
-
 import { RazaEntity } from './raza/raza.entity';
 import { RolEntity } from './rol/rol.entity';
 import { RolPorUsuarioEntity } from './rol-por-usuario/rolPorUsuario.entity';
@@ -14,7 +12,8 @@ import { SedesEntity } from './sedes/sedes.entity';
 
 import { UsuarioEntity } from './usuario/usuario.entity';
 import {MascotaModule} from "./mascota/mascota.module";
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { AdopcionModule } from './adopcion/adopcion.module';
+
 @Module({
   imports: [
     TypeOrmModule.forRoot(
@@ -37,7 +36,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
           SedesEntity,
           UsuarioEntity
         ]
-      }), MascotaModule
+      }), MascotaModule, AdopcionModule
   ],
   controllers: [AppController],
   providers: [AppService],
