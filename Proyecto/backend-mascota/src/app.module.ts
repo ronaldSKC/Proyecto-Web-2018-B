@@ -4,9 +4,7 @@ import { AppService } from './app.service';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import { AdopcionEntity } from './adopcion/adopcion.entity';
 import {EspecieEntity} from './especie/especie.entity';
-import { FundacionEntity } from './fundacion/fundacion.entity';
 import { MascotaEntity } from './mascota/mascota.entity';
-import { MascotaSedeEntity } from './mascota-sede/mascotaSede.entity';
 import { RazaEntity } from './raza/raza.entity';
 import { RolEntity } from './rol/rol.entity';
 import { RolPorUsuarioEntity } from './rol-por-usuario/rolPorUsuario.entity';
@@ -14,14 +12,15 @@ import { SedesEntity } from './sedes/sedes.entity';
 import { TipoUsuarioEntity } from './tipo-usuario/tipoUsuario.entity';
 import { UsuarioEntity } from './usuario/usuario.entity';
 import {MascotaModule} from "./mascota/mascota.module";
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { AdopcionModule } from './adopcion/adopcion.module';
+
 @Module({
   imports: [
     TypeOrmModule.forRoot(
       {
         type: 'mysql',
         host: 'localhost',
-        port: 32775,
+        port: 32769,
         username: 'web',
         password: '12345678',
         database: 'bddweb',
@@ -30,9 +29,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         entities: [
           AdopcionEntity,
           EspecieEntity,
-          FundacionEntity,
           MascotaEntity,
-          MascotaSedeEntity,
           RazaEntity,
           RolEntity,
           RolPorUsuarioEntity,
@@ -40,7 +37,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
           TipoUsuarioEntity,
           UsuarioEntity
         ]
-      }), MascotaModule
+      }), MascotaModule, AdopcionModule
   ],
   controllers: [AppController],
   providers: [AppService],
