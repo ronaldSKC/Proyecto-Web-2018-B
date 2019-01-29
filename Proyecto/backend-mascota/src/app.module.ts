@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
+
 import { AdopcionEntity } from './adopcion/adopcion.entity';
 import { AnimalEntity } from './animal/animal.entity';
 import { FundacionEntity } from './fundacion/fundacion.entity';
@@ -13,6 +13,7 @@ import { RolPorUsuarioEntity } from './rol-por-usuario/rolPorUsuario.entity';
 import { SedesEntity } from './sedes/sedes.entity';
 import { TipoUsuarioEntity } from './tipo-usuario/tipoUsuario.entity';
 import { UsuarioEntity } from './usuario/usuario.entity';
+import { TypeOrmModule } from '@nestjs/typeorm';
 @Module({
   imports: [
     TypeOrmModule.forRoot(
@@ -24,7 +25,7 @@ import { UsuarioEntity } from './usuario/usuario.entity';
         password: '12345678',
         database: 'bddweb',
         synchronize: true,
-        dropSchema: false,
+        dropSchema: true,
         entities: [
           AdopcionEntity,
           AnimalEntity,
