@@ -2,7 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { AdopcionEntity } from "./adopcion.entity";
 import {InjectRepository, Repository} from "@nestjs/typeorm";
 import { Adopcion } from "./adopcion.controller";
-import { FindManyOptions } from "typeorm";
+import { FindManyOptions} from "typeorm";
 @Injectable()
 export class AdopcionService{
     

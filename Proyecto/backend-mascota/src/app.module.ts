@@ -14,6 +14,7 @@ import { SedesEntity } from './sedes/sedes.entity';
 import { TipoUsuarioEntity } from './tipo-usuario/tipoUsuario.entity';
 import { UsuarioEntity } from './usuario/usuario.entity';
 import {MascotaModule} from "./mascota/mascota.module";
+import { TypeOrmModule } from '@nestjs/typeorm';
 @Module({
   imports: [
     TypeOrmModule.forRoot(
@@ -25,7 +26,7 @@ import {MascotaModule} from "./mascota/mascota.module";
         password: '12345678',
         database: 'bddweb',
         synchronize: true,
-        dropSchema: false,
+        dropSchema: true,
         entities: [
           AdopcionEntity,
           EspecieEntity,
