@@ -2,6 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne } from "ty
 import { type } from "os";
 import { RazaEntity } from "src/raza/raza.entity";
 import {SedesEntity} from "../sedes/sedes.entity";
+import {AdopcionEntity} from "../adopcion/adopcion.entity";
 
 
 @Entity('mascota')
@@ -73,9 +74,13 @@ export class MascotaEntity{
         raza => raza.mascotas)
     raza : RazaEntity;
 
+    @OneToMany(
+        type => AdopcionEntity,
+        adopcion => adopcion.mascota)
+    adopciones: AdopcionEntity[];
 
-
-    @OneToMany(type=>SedesEntity,
+    @OneToMany(
+        type=>SedesEntity,
         sede=>sede.mascota)
     sedes: SedesEntity[];
 }

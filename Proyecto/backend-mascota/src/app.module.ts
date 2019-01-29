@@ -9,7 +9,7 @@ import { RazaEntity } from './raza/raza.entity';
 import { RolEntity } from './rol/rol.entity';
 import { RolPorUsuarioEntity } from './rol-por-usuario/rolPorUsuario.entity';
 import { SedesEntity } from './sedes/sedes.entity';
-import { TipoUsuarioEntity } from './tipo-usuario/tipoUsuario.entity';
+
 import { UsuarioEntity } from './usuario/usuario.entity';
 import {MascotaModule} from "./mascota/mascota.module";
 import { AdopcionModule } from './adopcion/adopcion.module';
@@ -34,7 +34,6 @@ import { AdopcionModule } from './adopcion/adopcion.module';
           RolEntity,
           RolPorUsuarioEntity,
           SedesEntity,
-          TipoUsuarioEntity,
           UsuarioEntity
         ]
       }), MascotaModule, AdopcionModule
