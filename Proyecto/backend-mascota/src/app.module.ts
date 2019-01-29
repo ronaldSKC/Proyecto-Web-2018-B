@@ -20,7 +20,7 @@ import { AdopcionModule } from './adopcion/adopcion.module';
       {
         type: 'mysql',
         host: 'localhost',
-        port: 32769,
+        port: 32775,
         username: 'web',
         password: '12345678',
         database: 'bddweb',
