@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f3d1df77-d263-4766-80f5-56f822bd55ea" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/backend-mascota/src/adopcion/adopcion.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/backend-mascota/src/adopcion/adopcion.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/backend-mascota/src/especie/especie.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/backend-mascota/src/especie/especie.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/backend-mascota/src/fundacion/fundacion.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/backend-mascota/src/fundacion/fundacion.entity.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/backend-mascota/src/fundacion/fundacion.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/backend-mascota/src/fundacion/fundacion.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/backend-mascota/src/mascota-sede/mascotaSede.entity.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/backend-mascota/src/mascota/mascota.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/backend-mascota/src/mascota/mascota.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto/backend-mascota/src/sedes/sedes.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/backend-mascota/src/sedes/sedes.entity.ts" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/views/crear-mascota.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="10" column="57" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/adopcion/adopcion.controller.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/especie/especiecontroller.ts">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/especie/especie.service.ts">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/especie/especie.module.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="598">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/adopcion/adopcion.entity.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+              <folding>
+                <element signature="e#1#82#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/views/footer.ejs">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>edad</find>
+      <find>form</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Proyecto/backend-mascota/src/tipoMascota/tipo_mascota.entity.ts" />
+        <option value="$PROJECT_DIR$/Proyecto/backend-mascota/src/tipoMascota/tipo_mascota.module.ts" />
+        <option value="$PROJECT_DIR$/Proyecto/backend-mascota/src/tipoMascota/especie.entity.ts" />
+        <option value="$PROJECT_DIR$/Proyecto/backend-mascota/src/tipoMascota/especie.module.ts" />
+        <option value="$PROJECT_DIR$/Proyecto/backend-mascota/src/usuario/usuario.entity.ts" />
+        <option value="$PROJECT_DIR$/Proyecto/backend-mascota/src/mascota-sede/mascotaSede.entity.ts" />
+        <option value="$PROJECT_DIR$/Proyecto/backend-mascota/src/fundacion/fundacion.entity.ts" />
+        <option value="$PROJECT_DIR$/Proyecto/backend-mascota/src/mascota/mascota.service.ts" />
+        <option value="$PROJECT_DIR$/Proyecto/backend-mascota/src/mascota/mascota.module.ts" />
+        <option value="$PROJECT_DIR$/Proyecto/backend-mascota/src/mascota/mascota.controller.ts" />
+        <option value="$PROJECT_DIR$/Proyecto/backend-mascota/Publico/CSS/estilos.css" />
+        <option value="$PROJECT_DIR$/Proyecto/backend-mascota/Publico/Dilipa.html" />
+        <option value="$PROJECT_DIR$/Proyecto/backend-mascota/src/main.ts" />
+        <option value="$PROJECT_DIR$/Proyecto/backend-mascota/src/app.module.ts" />
+        <option value="$PROJECT_DIR$/Proyecto/backend-mascota/views/header.ejs" />
+        <option value="$PROJECT_DIR$/Proyecto/backend-mascota/Publico/CSS/estilos-generales.css" />
+        <option value="$PROJECT_DIR$/Proyecto/backend-mascota/views/crear-mascota.ejs" />
+        <option value="$PROJECT_DIR$/Proyecto/backend-mascota/src/especie/especie.entity.ts" />
+        <option value="$PROJECT_DIR$/Proyecto/backend-mascota/src/raza/raza.entity.ts" />
+        <option value="$PROJECT_DIR$/Proyecto/backend-mascota/src/sedes/sedes.entity.ts" />
+        <option value="$PROJECT_DIR$/Proyecto/backend-mascota/src/mascota/mascota.entity.ts" />
+        <option value="$PROJECT_DIR$/Proyecto/backend-mascota/src/adopcion/adopcion.entity.ts" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="952" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Proyecto-Web-2018-B" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Proyecto-Web-2018-B" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Proyecto-Web-2018-B" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Proyecto-Web-2018-B" type="462c0819:PsiDirectoryNode" />
+              <item name="Proyecto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Proyecto-Web-2018-B" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Proyecto-Web-2018-B" type="462c0819:PsiDirectoryNode" />
+              <item name="Proyecto" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-mascota" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Proyecto-Web-2018-B" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Proyecto-Web-2018-B" type="462c0819:PsiDirectoryNode" />
+              <item name="Proyecto" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-mascota" type="462c0819:PsiDirectoryNode" />
+              <item name="Publico" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Proyecto-Web-2018-B" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Proyecto-Web-2018-B" type="462c0819:PsiDirectoryNode" />
+              <item name="Proyecto" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-mascota" type="462c0819:PsiDirectoryNode" />
+              <item name="Publico" type="462c0819:PsiDirectoryNode" />
+              <item name="CSS" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Proyecto-Web-2018-B" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Proyecto-Web-2018-B" type="462c0819:PsiDirectoryNode" />
+              <item name="Proyecto" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-mascota" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Proyecto-Web-2018-B" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Proyecto-Web-2018-B" type="462c0819:PsiDirectoryNode" />
+              <item name="Proyecto" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-mascota" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="adopcion" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Proyecto-Web-2018-B" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Proyecto-Web-2018-B" type="462c0819:PsiDirectoryNode" />
+              <item name="Proyecto" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-mascota" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sedes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Proyecto-Web-2018-B" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Proyecto-Web-2018-B" type="462c0819:PsiDirectoryNode" />
+              <item name="Proyecto" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-mascota" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Users\miguel.parra\Documents\GitHub\Proyecto-Web-2018-B\Proyecto\backend-mascota\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\miguel.parra\Documents\GitHub\Proyecto-Web-2018-B\Proyecto\backend-mascota\src\usuario" />
+      <recent name="C:\Users\miguel.parra\Documents\GitHub\Proyecto-Web-2018-B\Proyecto\backend-mascota" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\miguel.parra\Documents\GitHub\Proyecto-Web-2018-B\Proyecto\backend-mascota\views" />
+      <recent name="C:\Users\miguel.parra\Documents\GitHub\Proyecto-Web-2018-B\Proyecto\backend-mascota\Publico\CSS" />
+      <recent name="C:\Users\miguel.parra\Documents\GitHub\Proyecto-Web-2018-B\Proyecto\backend-mascota\Publico" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f3d1df77-d263-4766-80f5-56f822bd55ea" name="Default Changelist" comment="" />
+      <created>1548379381829</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1548379381829</updated>
+      <workItem from="1548379383143" duration="8806000" />
+      <workItem from="1548571605504" duration="2974000" />
+      <workItem from="1548607162454" duration="1065000" />
+      <workItem from="1548621244335" duration="1642000" />
+      <workItem from="1548625443078" duration="2149000" />
+      <workItem from="1548632284926" duration="14743000" />
+      <workItem from="1548685192464" duration="5000" />
+      <workItem from="1548695597618" duration="766000" />
+      <workItem from="1548716324956" duration="10722000" />
+      <workItem from="1548768724174" duration="1683000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="44555000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="762" y="0" width="781" height="830" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.125" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TypeScript" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.2882353" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3793787" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TypeScript" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2882353" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/Publico/bootstrap/js/bootstrap.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/raza/raza.controller.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/mascota-sede/mascotaSede.entity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#92#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/fundacion/fundacion.entity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="559">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+          <folding>
+            <element signature="e#0#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/mascota/mascota.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/app.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/Publico/CSS/estilos.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/mascota/mascota.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/mascota/mascota.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/usuario/usuario.entity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/Publico/CSS/estilos-generales.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/main.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="858">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/usuario/usuario.service.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="728">
+          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/Publico/Dilipa.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/Publico/CSS/css-general.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/views/header.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/views/footer.ejs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/views/crear-mascota.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="10" column="57" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/adopcion/adopcion.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/especie/especiecontroller.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/especie/especie.service.ts">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/sedes/sedes.entity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="47" column="27" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/mascota/mascota.entity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="78" column="26" selection-start-line="78" selection-start-column="26" selection-end-line="78" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/raza/raza.entity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/especie/especie.entity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="6" lean-forward="true" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/especie/especie.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Proyecto/backend-mascota/src/adopcion/adopcion.entity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+          <folding>
+            <element signature="e#1#82#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

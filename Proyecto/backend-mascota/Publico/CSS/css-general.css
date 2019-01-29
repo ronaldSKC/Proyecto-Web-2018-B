@@ -1,0 +1,41 @@
+.tomate {
+    background: orangered;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+}
+.rojo{
+    background: darkred;
+    color: white;
+
+    font-size: 18px;
+    text-align: center;
+}
+.imagen {
+    height: 200%;
+}
+.text2 {
+    font-size: 10px;
+}
+.text3 {
+    font-size: 40px;
+    color: #0056b3;
+    text-align: center;
+}
+.text4 {
+    font-size: 10px;
+    color: #0056b3;
+    text-align: center;
+}
+.etiquetasTomate{
+    background: orange;
+    color: #0056b3;
+    font-size: 17px;
+    text-align: center;
+}
+.etiquetaFinal{
+    background:midnightblue ;
+    color: #fd7e14;
+    font-size: 18px;
+    text-align: center;
+}

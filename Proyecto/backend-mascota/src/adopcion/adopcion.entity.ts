@@ -1,6 +1,6 @@
 
 import {Column, Entity, Index, PrimaryGeneratedColumn, ManyToOne} from "typeorm";
-import { MascotaSedeEntity } from "src/mascota-sede/mascotaSede.entity";
+
 import { type } from "os";
 import { UsuarioEntity } from "src/usuario/usuario.entity";
 @Entity('adopcion')
@@ -9,27 +9,39 @@ export class AdopcionEntity {
         name : 'id_solicitud'
     })
     idSolicitud : number;
+
+
     @Column({
-        name : 'telefono'
-    })
-    telefono : string;
-    @Column({
-        name : 'telefono_celular'
+        name : 'telefono_celular',
+        type: 'varchar',
+        length: 10
     })
     telefonoCelular : string;
+
     @Column({
-        name : 'fecha_solicitud'
+        name : 'fecha_solicitud',
+        type: 'varchar',
     })
+
     fechaSolicitud : string;
+
     @Column({
-        name : 'estado_solicitud'
+        name : 'estado_solicitud',
+        type: 'boolean',
     })
-    estadoSolicitud : string;
-    @ManyToOne(type => MascotaSedeEntity,
-        mascotaSede => mascotaSede.idMascotaSede)
-    mascotaSede: MascotaSedeEntity;
-    @ManyToOne(type => UsuarioEntity,
-        usuario => usuario.idUsuario)
+    estadoSolicitud : boolean;
+
+    @Column({
+        name : 'comentario',
+        type: 'varchar',
+    })
+    comentario : string;
+
+
+
+    @ManyToOne(
+        type => UsuarioEntity,
+        usuario => usuario.adopciones)
     usuario: UsuarioEntity;
 
 }

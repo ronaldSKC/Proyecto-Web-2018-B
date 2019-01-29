@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-
+import {TypeOrmModule} from '@nestjs/typeorm';
 import { AdopcionEntity } from './adopcion/adopcion.entity';
-import { AnimalEntity } from './animal/animal.entity';
+import {EspecieEntity} from './especie/especie.entity';
 import { FundacionEntity } from './fundacion/fundacion.entity';
 import { MascotaEntity } from './mascota/mascota.entity';
 import { MascotaSedeEntity } from './mascota-sede/mascotaSede.entity';
@@ -13,6 +13,7 @@ import { RolPorUsuarioEntity } from './rol-por-usuario/rolPorUsuario.entity';
 import { SedesEntity } from './sedes/sedes.entity';
 import { TipoUsuarioEntity } from './tipo-usuario/tipoUsuario.entity';
 import { UsuarioEntity } from './usuario/usuario.entity';
+import {MascotaModule} from "./mascota/mascota.module";
 import { TypeOrmModule } from '@nestjs/typeorm';
 @Module({
   imports: [
@@ -20,7 +21,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       {
         type: 'mysql',
         host: 'localhost',
-        port: 32769,
+        port: 32775,
         username: 'web',
         password: '12345678',
         database: 'bddweb',
@@ -28,7 +29,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         dropSchema: true,
         entities: [
           AdopcionEntity,
-          AnimalEntity,
+          EspecieEntity,
           FundacionEntity,
           MascotaEntity,
           MascotaSedeEntity,
@@ -39,8 +40,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
           TipoUsuarioEntity,
           UsuarioEntity
         ]
-      }
-    )
+      }), MascotaModule
   ],
   controllers: [AppController],
   providers: [AppService],
