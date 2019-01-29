@@ -1,23 +1,9 @@
-<!doctype html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Registro de mascota</title>
-
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/bootstrap/css/animate.css">
-    <link rel="stylesheet" href="/CSS/estilos-generales.css">
-    <link rel="stylesheet" href="/CSS/estilos.css">
-</head>
-<body>
-
-
-
-<div class="container">
+<%- include('header') %>
+<div class="container"  style="width: 100%">
     <h1>REGISTRAR UNA MASCOTA</h1>
+
+    <form action="/mascota/crear-mascota/"
+          method="GET">
     <div class="row" >
         <div class="col-sm-10">
             <div class="form-group"></div>
@@ -29,11 +15,6 @@
         <div class="col-sm-5">
             <div class="form-group"></div>
             <label for="generoMascota">Sexo</label>
-            <!-- <input type="text"
-            id="generoMascota"
-            name="generoMascota"
-            type="text"
-            class="form-control"> -->
             <select name="generoMascota"
                     id="generoMascota"
                     class="form-control">
@@ -44,13 +25,60 @@
         </div>
         <div class="col-sm-5">
             <div class="form-group"></div>
-            <label for="edadMascota">Edad</label>
+            <label for="edadMascota">Edad aproximada</label>
             <input type="text"
                    id="edadMascota"
                    name="edadMascota"
                    class="form-control">
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="form-group"></div>
+            <label for="tamanioMacota">Tamaño </label>
+            <input type="text"
+                   name="tamanioMascota"
+                   id="tamanioMascota"
+                   class="form-control">
+        </div>
+        <div class="col-sm-5">
+            <div class="form-group"></div>
+            <label for="colorMascota">Color</label>
+            <select name="colorMascota"
+                    id="colorMascota"
+                    class="form-control">
+                <option value="1">Blanco</option>
+                <option value="2">Crema</option>
+                <option value="1">Negro</option>
+                <option value="2">Cafe</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-10">
+            <div class="form-group"></div>
+            <label for="descripcionMascota">Descripción</label>
+            <textarea name="descripcionMascota"
+                      id="descripcionMascota"
+                      rows="4"
+                      class="form-control">
+            </textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-10">
+            <div class="form-group"></div>
+            <label for="fotoMascota">Link de la foto</label>
+            <input type="text"
+                   name="fotoMascota"
+                   id="fotoMascota"
+                   class="form-control">
+        </div>
+    </div>
+
 
     <div class="row">
         <div class="col-sm-5">
@@ -66,39 +94,23 @@
                    value="True"
                    readonly="readonly"
                    class="form-control"
-            />
-
-        </div>
-        <div class="col-sm-5">
-            <div class="form-group"></div>
-            <label for="tamanioMacota">Tamaño </label>
-            <input type="text"
-                   name="tamanioMascota"
-                   id="tamanioMascota"
-                   class="form-control">
+            hidden="hidden">
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-10">
-            <div class="form-group"></div>
-            <label for="descripcionMascota">Descripción</label>
-            <textarea name="descripcionMascota"
-                      id="descripcionMascota"
-                      rows="4"
-                      class="form-control">
-            </textarea>
+<div class="row">
+    <div class="col-sm-3"></div>
+        <div class="col-sm-4">
+            <button class="btn btn-outline-primary  btn-block espaciado-boton">
+                Crear mascota</button>
         </div>
-    </div>
+    <div class="col-sm-3"></div>
 
+</div>
+
+    </form>
 
 </div>
 
 
-
-
-<script src="/bootstrap/jquery.js"></script>
-<script src="/bootstrap/popper.min.js"></script>
-
-<script src="/bootstrap/js/bootstrap.js"></script>
-</body>
-</html>
+<%- include('librerias')%>
+<%- include('footer')%>

@@ -12,25 +12,41 @@ export class MascotaEntity{
     idMascota: number;
 
     @Column({
-        name: ' nombre_mascota',
+        name: ' nombre',
         type: 'varchar',
         length: 30
     })
     nombreMascota: string;
 
     @Column({
-        name: 'genero_mascota',
+        name: 'genero',
         type: 'varchar',
-        length: 10
+        length: 6
     })
     generoMascota: string;
 
     @Column({
-        name:'edad_mascota',
+        name:'edad_aproximada',
         type: "varchar",
         length: 2,
     })
     edadMascota: string;
+
+
+    @Column({
+        name: 'tamanio',
+        type: 'varchar',
+        length: 3,
+    })
+    tamanioMascota: string;
+
+    @Column({
+        name: 'color',
+        type: 'varchar',
+        length: 10,
+    })
+    colorMascota: string;
+
 
     @Column({
         name:'descripcion_mascota',
@@ -40,26 +56,24 @@ export class MascotaEntity{
     descripcionMascota: string;
 
     @Column({
+        name:'foto_mascota',
+        type: 'varchar',
+    })
+    fotoMascota: string;
+
+    @Column({
         name: 'estado_mascota',
         type: 'boolean',
     })
     estadoMascota:string;
 
-    @Column({
-        name: 'tamanio_mascota',
-        type: 'varchar',
-        length: 3,
-    })
-    tamanioMascota: string;
 
     @ManyToOne(
         type => RazaEntity,
         raza => raza.idRaza)
     raza : RazaEntity;
 
-    @ManyToOne(type=> FundacionEntity,
-        fundacion=>fundacion.idFundacion)
-    fundacion: FundacionEntity;
+
 
     @OneToMany(type=>MascotaSedeEntity,
         mascotaSede=>mascotaSede.idMascotaSede)
