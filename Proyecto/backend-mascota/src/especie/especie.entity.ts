@@ -7,7 +7,8 @@ export class EspecieEntity{
     @PrimaryGeneratedColumn({
         name: 'id_especie'
     })
-        idEspecie: number;
+    idEspecie: number;
+
     @Column({
         name: 'nombre',
         type: 'varchar',
@@ -19,5 +20,5 @@ export class EspecieEntity{
         type => RazaEntity,
         raza => raza.especie)
     razas : RazaEntity[]
-    
+
 }

@@ -1,12 +1,21 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne } from "typeorm";
-import { MascotaSedeEntity } from "src/mascota-sede/mascotaSede.entity";
+
 import { type } from "os";
-import { FundacionEntity } from "src/fundacion/fundacion.entity";
+import {MascotaEntity} from "../mascota/mascota.entity";
+
 
 @Entity('sedes')
 export class SedesEntity{
     @PrimaryGeneratedColumn ()
     idSedes: number;
+
+
+    @Column({
+        name: 'ciudad',
+        type: 'varchar',
+        length: 40
+    })
+    ciudad: string;
 
     @Column({
         name: 'calle_principal',
@@ -31,13 +40,10 @@ export class SedesEntity{
     )
     referencia: string;
 
-    @OneToMany(
-        type => MascotaSedeEntity,
-        mascotaSede => mascotaSede.sede)
-    mascotasSedes: MascotaSedeEntity[]
+
 
     @ManyToOne(
-        type => FundacionEntity,
-        fundacion => fundacion.sedes)
-    fundacion : FundacionEntity;
+        type => MascotaEntity,
+        mascota => mascota.sedes)
+    mascota : MascotaEntity;
 }
