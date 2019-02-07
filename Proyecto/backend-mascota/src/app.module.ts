@@ -20,7 +20,7 @@ import {MascotaModule} from "./mascota/mascota.module";
       {
         type: 'mysql',
         host: 'localhost',
-        port: 32770,
+        port: 32771,
         username: 'web',
         password: '12345678',
         database: 'bddweb',
@@ -36,7 +36,8 @@ import {MascotaModule} from "./mascota/mascota.module";
           SedesEntity,
           UsuarioEntity
         ]
-      }), MascotaModule
+      }), MascotaModule,
+      
   ],
   controllers: [AppController],
   providers: [AppService],

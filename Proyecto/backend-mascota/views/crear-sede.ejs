@@ -1,0 +1,40 @@
+<%- include('header')%>
+<div class="container">
+    <h1>
+        <%= h1%> Sede
+    </h1>
+    <form action="/sede/crear-sede" method="POST">
+        <div class="row">
+            <div class="col-sm-6">
+                <div>
+                    <label for="ciudad">Ciudad</label>
+                </div>
+                <div>
+                    <label for="callePrincipal">Calle Principal</label>
+                </div>
+                <div>
+                    <label for="calleSecundaria">Calle Secundaria</label>
+                </div>
+                <div>
+                    <label for="referencia">Referencia</label>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div>
+                    <input class="form-control" type="text" name="ciudad" id="ciudad">
+                </div>
+                <div>
+                    <input class="form-control" type="text" name="callePrincipal" id="callePrincipal">
+                </div>
+                <div>
+                    <input class="form-control" type="text" name="calleSecundaria" id="calleSecundaria">
+                </div>
+                <div>
+                    <input class="form-control" type="text" name="referencia" id="referencia">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<%- include('librerias')%>
+<%- include('footer')%>
