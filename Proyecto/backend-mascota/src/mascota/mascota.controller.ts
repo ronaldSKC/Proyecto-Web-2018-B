@@ -212,17 +212,12 @@ export class MascotaController {
         } else {*/
             mascota.idMascota = +idMascota;
 
-            await this._eventoService.actualizar(evento);
+            await this._mascotaService.actualizar(mascota);
 
-            const parametrosConsulta = `?accion=actualizar&nombre=${evento.nombreEvento}`;
+            const parametrosConsulta = `?accion=actualizar&nombre=${mascota.nombreMascota}`;
 
-            response.redirect('/evento/inicio' + parametrosConsulta);
+            response.redirect('/mascota/inicio' + parametrosConsulta);
         }
-    }
-
-
-
-
 
 }
 

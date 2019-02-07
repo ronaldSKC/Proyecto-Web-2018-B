@@ -38,6 +38,12 @@ export class MascotaService {
         return this._mascotaRepository.findOne(id)
     }
 
+    actualizar(nuevaMascota: Mascota): Promise<MascotaEntity> {
+
+        const medicamentoEntity = this._mascotaRepository.create(nuevaMascota);
+        return this._mascotaRepository.save(medicamentoEntity)
+    }
+
 
 }
 
