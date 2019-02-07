@@ -28,18 +28,16 @@ export class MascotaEntity{
 
     @Column({
         name:'edad_aproximada',
-        type: "varchar",
-        length: 2,
+        type: "int",
     })
-    edadMascota: string;
+    edadMascota: number;
 
 
     @Column({
         name: 'tamanio',
-        type: 'varchar',
-        length: 3,
+        type: 'float',
     })
-    tamanioMascota: string;
+    tamanioMascota: number;
 
     @Column({
         name: 'color',
@@ -66,7 +64,7 @@ export class MascotaEntity{
         name: 'estado_mascota',
         type: 'boolean',
     })
-    estadoMascota:string;
+    estadoMascota:boolean;
 
 
     @ManyToOne(
@@ -79,8 +77,8 @@ export class MascotaEntity{
         adopcion => adopcion.mascota)
     adopciones: AdopcionEntity[];
 
-    @OneToMany(
+    @ManyToOne(
         type=>SedesEntity,
-        sede=>sede.mascota)
-    sedes: SedesEntity[];
+        sede=>sede.mascotas)
+    sede: SedesEntity;
 }
