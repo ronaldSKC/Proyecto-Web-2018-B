@@ -9,5 +9,5 @@ export interface Adopcion{
     telefono : string;
     telefonoCelular : string;
     fechaSolicitud : string;
-    estadoSolicitud : string;
+    estadoSolicitud : boolean;
 }

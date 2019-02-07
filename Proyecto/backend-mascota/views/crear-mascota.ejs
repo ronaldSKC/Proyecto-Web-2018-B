@@ -1,116 +1,181 @@
 <%- include('header') %>
+<% const estaCreando = typeof mascota === "undefined"%>
+
+<% const existeMensaje = typeof mensaje !== "undefined"%>
+
 <div class="container"  style="width: 100%">
-    <h1>REGISTRAR UNA MASCOTA</h1>
+    <h1><%= estaCreando ? 'REGISTRAR':'ACTUALIZAR' %>MASCOTA</h1>
+    <% if (existeMensaje){%>
+    <p>MENSAJE: <%=mensaje%></p>
+    <%}%>
 
-    <form action="/mascota/crear-mascota/"
-          method="GET">
-    <div class="row" >
-        <div class="col-sm-10">
-            <div class="form-group"></div>
-            <label for="nombreMascota"> Nombre de la mascota</label>
-            <input type="text" id="nombreMascota" name="nombreMascota" type="text" class="form-control">
-        </div>
-    </div>
-    <div class="row" >
-        <div class="col-sm-5">
-            <div class="form-group"></div>
-            <label for="generoMascota">Sexo</label>
-            <select name="generoMascota"
-                    id="generoMascota"
-                    class="form-control">
-                <option value="1">Hembra</option>
-                <option value="2">Macho</option>
-            </select>
+    <form action="/mascota/<%= estaCreando ? 'crear' : 'actualizar' %>-mascota/<%= estaCreando ? '' : mascota.idMascota %>"
+          method="POST">
 
+        <div class="row" >
+            <div class="col-sm-10">
+                <div class="form-group"></div>
+                <label for="nombreMascota"> Nombre de la mascota</label>
+                <input type="text"
+                       id="nombreMascota"
+                       name="nombreMascota"
+                       type="text"
+                       class="form-control"
+                       value="<%= estaCreando ? '' : mascota.nombreMascota%>"
+                >
+            </div>
         </div>
-        <div class="col-sm-5">
-            <div class="form-group"></div>
-            <label for="edadMascota">Edad aproximada</label>
-            <input type="text"
-                   id="edadMascota"
-                   name="edadMascota"
-                   class="form-control">
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-sm-5">
-            <div class="form-group"></div>
-            <label for="tamanioMacota">Tamaño </label>
-            <input type="text"
-                   name="tamanioMascota"
-                   id="tamanioMascota"
-                   class="form-control">
-        </div>
-        <div class="col-sm-5">
-            <div class="form-group"></div>
-            <label for="colorMascota">Color</label>
-            <select name="colorMascota"
-                    id="colorMascota"
-                    class="form-control">
-                <option value="1">Blanco</option>
-                <option value="2">Crema</option>
-                <option value="1">Negro</option>
-                <option value="2">Cafe</option>
-            </select>
-        </div>
-    </div>
+        <div class="row" >
+            <div class="col-sm-5">
+                <div class="form-group"></div>
+                <label for="generoMascota">Sexo</label>
+                <select name="generoMascota"
+                        id="generoMascota"
+                        class="form-control">
+                    <option value="<%= estaCreando ? 'Hembra' : mascota.generoMascota%>">
+                        <%= estaCreando ? 'Hembra' : mascota.generoMascota%>
+                    </option>
+                    <option value="Macho">Macho</option>
+                </select>
 
-    <div class="row">
-        <div class="col-sm-10">
-            <div class="form-group"></div>
-            <label for="descripcionMascota">Descripción</label>
-            <textarea name="descripcionMascota"
-                      id="descripcionMascota"
-                      rows="4"
-                      class="form-control">
-            </textarea>
-        </div>
-    </div>
+            </div>
 
-    <div class="row">
-        <div class="col-sm-10">
-            <div class="form-group"></div>
-            <label for="fotoMascota">Link de la foto</label>
-            <input type="text"
-                   name="fotoMascota"
-                   id="fotoMascota"
-                   class="form-control">
+            <div class="col-sm-5">
+                <div class="form-group"></div>
+                <label for="edadMascota">Edad aproximada</label>
+                <input type="text"
+                       id="edadMascota"
+                       name="edadMascota"
+                       class="form-control"
+                       value="<%= estaCreando ? '' : mascota.edadMascota%>">
+            </div>
         </div>
-    </div>
 
 
-    <div class="row">
-        <div class="col-sm-5">
-            <div class="form-group"></div>
-            <label for="estadoMascota">Estado de la mascota</label>
-            <!--    <input type="text"
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="form-group"></div>
+                <label for="tamanioMacota">Tamaño</label>
+                <input type="text"
+                       name="tamanioMascota"
+                       id="tamanioMascota"
+                       class="form-control"
+                       value="<%= estaCreando ? '' : mascota.tamanioMascota%>">
+            </div>
+
+            <div class="col-sm-5">
+                <div class="form-group"></div>
+                <label for="colorMascota">Color</label>
+                <select name="colorMascota"
+                        id="colorMascota"
+                        class="form-control">
+                    <option value="<%= estaCreando ? 'Blanco' : mascota.colorMascota%>">
+                        <%= estaCreando ? 'Blanco' : mascota.colorMascota%>
+                    </option>
+                    <option value="Crema">Crema</option>
+                    <option value="Negro">Negro</option>
+                    <option value="Cafe">Cafe</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="form-group"></div>
+                <label for="sede">Sede</label>
+                <select name="sede"
+                        id="sede"
+                        class="form-control">
+                    <% arregloSedes.forEach( (sedeLista)=> { %>
+                    <option value="<%=sedeLista.idSedes%>">
+
+                        <%=sedeLista.ciudad%></option>
+                    <% }) %>
+                </select>
+            </div>
+
+            <div class="col-sm-5">
+                <div class="form-group"></div>
+                <label for="raza">Raza</label>
+                <select name="raza"
+                        id="raza"
+                        class="form-control">
+                    <% arregloRazas.forEach( (razaLista)=> { %>
+                    <option value="<%=razaLista.idRaza%>">
+
+                        <%=razaLista.nombreRaza%></option>
+                    <% }) %>
+
+                </select>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-10">
+                <div class="form-group"></div>
+                <label for="fotoMascota">Link de la foto</label>
+                <input type="text"
+                       name="fotoMascota"
+                       id="fotoMascota"
+                       class="form-control"
+                       value="<%= estaCreando ? '' : mascota.fotoMascota%>">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-10">
+                <div class="form-group"></div>
+                <label for="descripcionMascota">Descripción</label>
+                <textarea
+                        name="descripcionMascota"
+                        id="descripcionMascota"
+                        rows="4"
+                        class="form-control">
+                <%= estaCreando ? '' : mascota.descripcionMascota%>
+                </textarea>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-sm-5">
+                <div class="form-group"></div>
+                <label for="estadoMascota" hidden="hidden">Estado de la mascota</label>
+                <input type="text"
                        name="estadoMascota"
                        id="estadoMascota"
-                       class="form-control"> -->
-            <input type="text"
-                   name="estadoMascota"
-                   id="estadoMascota"
-                   value="True"
-                   readonly="readonly"
-                   class="form-control"
-            hidden="hidden">
-        </div>
-    </div>
-<div class="row">
-    <div class="col-sm-3"></div>
-        <div class="col-sm-4">
-            <button class="btn btn-outline-primary  btn-block espaciado-boton">
-                Crear mascota</button>
-        </div>
-    <div class="col-sm-3"></div>
+                       value= "<%= estaCreando ? '0' : mascota.colorMascota%>"
+                       readonly="readonly"
+                       class="form-control"
+                       hidden="hidden">
+            </div>
 
-</div>
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-4">
+                <button class="btn btn-outline-info btn-block espaciado-boton">
+                    <%= estaCreando ? 'Crear' : 'Actualizar'%> mascota</button>
+            </div>
+            <div class="col-sm-3"></div>
+
+        </div>
 
     </form>
+
+    <a href="/mascota/inicio>
+        <button class="btn btn-outline-info espaciado-boton">Regresar</button>
+    </a>
 
 </div>
 
 
 <%- include('librerias')%>
-<%- include('footer')%>
+

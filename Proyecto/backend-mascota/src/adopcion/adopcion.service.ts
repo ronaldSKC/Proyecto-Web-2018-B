@@ -1,8 +1,8 @@
 import { Injectable } from "@nestjs/common";
 import { AdopcionEntity } from "./adopcion.entity";
-import {InjectRepository, Repository} from "@nestjs/typeorm";
+import {InjectRepository, } from "@nestjs/typeorm";
 import { Adopcion } from "./adopcion.controller";
-import { FindManyOptions } from "typeorm";
+import {FindManyOptions, FindOneOptions, Repository} from "typeorm";
 @Injectable()
 export class AdopcionService{
     
@@ -11,6 +11,7 @@ export class AdopcionService{
         private readonly _adopcionRepository: Repository<AdopcionEntity>
     ){
     }
+
     crearAdopcion (adopcion : Adopcion): Promise<AdopcionEntity>{
         const adopcionEntity : AdopcionEntity = this._adopcionRepository
         .create(adopcion);
@@ -24,7 +25,7 @@ export class AdopcionService{
     eliminarAdopcion (idAdopcion: number) : Promise<AdopcionEntity>{
         const adopcionEliminar : AdopcionEntity = this._adopcionRepository
         .create({
-            id: idAdopcion
+            idSolicitud: idAdopcion
         });
         return this._adopcionRepository.remove(adopcionEliminar)
     }
