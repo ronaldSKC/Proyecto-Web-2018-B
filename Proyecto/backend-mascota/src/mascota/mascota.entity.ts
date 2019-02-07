@@ -46,6 +46,11 @@ export class MascotaEntity{
     })
     colorMascota: string;
 
+    @Column({
+        name:'foto_mascota',
+        type: 'varchar',
+    })
+    fotoMascota: string;
 
     @Column({
         name:'descripcion_mascota',
@@ -54,11 +59,7 @@ export class MascotaEntity{
     })
     descripcionMascota: string;
 
-    @Column({
-        name:'foto_mascota',
-        type: 'varchar',
-    })
-    fotoMascota: string;
+
 
     @Column({
         name: 'estado_mascota',

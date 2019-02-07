@@ -5,11 +5,26 @@
     text-decoration: none;
 }
 .espaciado-boton{
-    margin-top: 30px;
+    margin-top: 15px;
     margin-bottom: 10px;
 
 }
 .scroll-tabla{
     height: 250px;
     overflow: auto;
+}
+
+table, th, td{
+    border: 0px solid black;
+    border-collapse: collapse;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+h1{
+
+    text-align: center;
+
 }

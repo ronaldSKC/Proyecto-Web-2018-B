@@ -1,0 +1,124 @@
+<% const existeMensaje = typeof mensaje !== "undefined"%>
+<%- include('header'); %>
+<br><br>
+
+
+
+
+
+<% if (existeMensaje){%>
+
+    <div class="<%= clase %>" role="alert">
+            <span class="font-weight-bold">
+                MENSAJE:
+            </span> : <%= mensaje %>
+    </div>
+<%}%>
+
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 ">
+
+
+<h1>Datos del Usuario</h1>
+
+
+
+
+
+        </div>
+
+        <div class="col-md-9">
+
+
+            <h1 >Mascotas en adopción</h1>
+
+            <form action="/mascota/inicio" method="get">
+
+                <label for="busqueda">Búsqueda paciente</label>
+                <input id="busqueda" type="text" name="busqueda">
+
+                <button>Buscar</button>
+            </form>
+
+            <a href="/mascota/crear-mascota">
+                <button>Ingresar una nueva mascota</button>
+            </a>
+
+
+            <div class="row">
+
+                <% arregloMascotas.forEach( (mascota)=> { %>
+
+                <div class="col-sm-4">
+
+                    <table class="table table-hover" content="center" >
+                        <!-- tr -> table row -->
+                        <tr>
+
+                            <!-- th -> table header -->
+
+                            <td height="250"><img width="80%" height="100%" src="<%=mascota.fotoMascota %>" alt=""></td>
+
+                        </tr>
+                        <tr>
+                            <!-- th -> table header -->
+
+                            <td><%=mascota.nombreMascota %></td>
+                        </tr>
+                        <tr>
+                            <!-- th -> table header -->
+
+                            <td><%=mascota.descripcionMascota%></td>
+                        </tr>
+
+                        <tr><td>
+                                <div class="row">
+                                    <div class="col-sm-4">
+
+                                        <form action="/mascota/eliminar-mascota/<%= mascota.idMascota %>" method="POST">
+                                            <button  class="btn btn-outline-danger btn-sm espaciado-boton" type="submit"
+                                                     type="submit"> Eliminar</button>
+                                        </form>
+
+                                    </div>
+
+                                    <div class="col-sm-4">
+
+                                        <a href="/mascota/actualizar-mascota/<%= mascota.idMascota %>">
+                                            <button  class="btn btn-outline-success btn-sm btn- espaciado-boton" type="submit">Actualizar</button>
+
+                                        </a>
+
+                                    </div>
+                                    <div class="col-sm-4">
+
+
+                                        <a href="/mascota/inicio/">
+                                            <button  class="btn btn-outline-info btn-sm espaciado-boton" type="submit"> Ver Mascota</button>
+
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </td>
+
+                        </tr>
+                    </table>
+                </div>
+                <% }) %>
+            </div>
+
+        </div>
+
+        <br>
+        <br>
+    </div>
+</div>
+
+
+
+<%- include('librerias')%>
