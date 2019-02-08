@@ -20,3 +20,22 @@ h1{
     text-align: center;
 
 }
+
+
+.ScrollableContainer {
+    max-width: 1100px;
+    max-height: 900px;
+    overflow: auto;
+}
+
+.container-fluid
+ {
+     border: 1px #117a8b solid;
+
+ }
+
+.container
+{
+    border: 1px #171a1d wave;
+
+}

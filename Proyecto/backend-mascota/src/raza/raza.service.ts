@@ -46,4 +46,9 @@ export class RazaService {
         return this._razaRepository.save(medicamentoEntity)
     }
 
+
+
+    obtenerRazasPorEspecie(parametros:FindManyOptions<RazaEntity>): Promise<RazaEntity[]> {
+        return this._razaRepository.find(parametros)
+    }
 }
