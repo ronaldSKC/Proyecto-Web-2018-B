@@ -95,7 +95,7 @@ export class AppController {
         // console.log(sesion)
         switch (nombreRol) {
           case 'usuario':
-            res.redirect('mascota/inicio')
+            res.redirect('mascota/inicio-usuario')
             break;
           case 'administrador':
             res.redirect('mascota/inicio')
