@@ -10,7 +10,12 @@ export class AppController {
               private readonly  _usuarioService:UsuarioService,
               private readonly _rolPorUsuarioServicio: RolPorUsuarioService) {}
 
-
+  @Get('inicio')
+  inicio(
+    @Res() res
+  ){
+    res.render('inicio')
+  }
   @Get('login')
   mostrarLogin(
       @Res() res,

@@ -1,0 +1,59 @@
+<%- include('header')%>
+<% const estaCreando = typeof raza === "undefined"%>
+<% const existeMensaje = typeof mensaje !== "undefined"%>
+
+
+<div class="container">
+    <h1><%= estaCreando ? 'REGISTRAR':'ACTUALIZAR' %> raza</h1>
+    <% if (existeMensaje){%>
+    <p>MENSAJE: <%=mensaje%></p>
+    <%}%>
+    <form action="/raza/<%= estaCreando ? 'crear' : 'actualizar' %>-raza/<%= estaCreando ? '' : raza.idrazas %>" method="POST">
+        <br>
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div>
+                    <label class="col-form-label" for="nombreRaza">Nombre</label>
+                </div>
+                <div class="input-group-prepend">
+                        <label class="input-group-text" for="especie">Especie</label>
+                      </div>
+                
+            </div>
+            <div class="col-sm-6">
+                <div>
+                    <input class="form-control" type="text" name="nombreRaza" id="nombreRaza" value="<%= estaCreando ? '' : raza.nombreRaza%>">
+                </div>
+                <select class="custom-select" id="especie" name="especie">
+                        <option selected>Choose...</option>
+                        <option value="1">Canino</option>
+                        <option value="2">Felino</option>
+                      </select>
+                    </div>
+            </div>
+        </div>
+        <br>
+        <div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <button class="btn btn-outline-success btn-block">
+                        <%= estaCreando ? 'Crear' : 'Actualizar'%> raza
+                    </button>
+                </div>
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <div>
+                        <a href="/raza/inicio"><button class="btn btn-outline-dark btn-block">Regresar</button></a>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </form>
+</div>
+<br>
+<br>
+
+<%- include('librerias')%>
