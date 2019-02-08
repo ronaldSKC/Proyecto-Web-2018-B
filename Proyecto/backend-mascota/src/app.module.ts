@@ -22,7 +22,7 @@ import {SedesModule} from "./sedes/sedes.module";
       {
         type: 'mysql',
         host: 'localhost',
-        port: 32771,
+        port: 32769,
         username: 'web',
         password: '12345678',
         database: 'bddweb',

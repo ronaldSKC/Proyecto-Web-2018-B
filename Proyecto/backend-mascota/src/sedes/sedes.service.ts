@@ -14,7 +14,7 @@ export class SedesService {
     obtenerRol(): Promise<SedesEntity[]> {
         return this._sedesRepository.find()
     }
-    async findOne(id: number) {
+    async findOne(id: number): Promise<SedesEntity> {
 
         return await this._sedesRepository.findOne(id);
     }

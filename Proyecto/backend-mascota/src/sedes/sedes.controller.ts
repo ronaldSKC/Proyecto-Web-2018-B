@@ -23,9 +23,8 @@ export class SedesController {
     ) {
         return this._sedesSercio.findOne(id);
     }
-    
-    @Get('crear-sede')
-    async verSede(
+    @Get('inicio')
+    async ver(
         @Res() res,
         @Query('accion') accion: string,
         @Query('nombre') nombre: string,
@@ -82,41 +81,49 @@ export class SedesController {
 
             sedes = await this._sedesSercio.findAll()
         }
-        res.render('crear-sede', {
-
+        res.render('lista-sedes', {
             mensaje: mensaje,
             clase: clase,
             arregloSedes: sedes
         })
+    } 
+    
+    @Get('crear-sede')
+    verSede(
+        @Res() res,
+    ) {
+        
+        res.render('crear-sede')
     }
 
     @Post('crear-sede')
-    create(
+    async create(
         @Res() res,
         @Body() sedeCrear: SedesDto
     ) {
-        this._sedesSercio.create(sedeCrear)
-        res.render('/crear-sede')
+        await this._sedesSercio.create(sedeCrear)
+        const parametrosConsulta = `?accion=crear&nombre=${sedeCrear.ciudad}`;
+        res.redirect('/sede/inicio' +parametrosConsulta)
     }
 
-    @Post('eliminar/:id')
+    @Post('eliminar-sede/:idSedes')
     async eliminar(
-        @Param() idSede: string,
+        @Param('idSedes') idSedes: string,
         @Res() res
     ) {
         const sedeEncontrada = await this._sedesSercio
-            .findOne(+idSede);
+            .findOne(+idSedes);
 
-        await this._sedesSercio.delete(Number(idSede));
+        await this._sedesSercio.delete(Number(idSedes));
 
         const parametrosConsulta = `?accion=borrar&nombre=${sedeEncontrada.ciudad}`;
 
-        res.redirect('/sede/crear-sede' + parametrosConsulta);
+        res.redirect('/sede/inicio' + parametrosConsulta);
     }
     
-    @Get('actualizar-sede/:idSede')
+    @Get('actualizar-sede/:idSedes')
     async actualizarEvento(
-        @Param('idSede') idSede: string,
+        @Param('idSedes') idSedes: string,
         @Res() response,
         @Query('error') error: string,
         @Session() sesion
@@ -126,33 +133,33 @@ export class SedesController {
                 mensaje = "Datos erroneos";
             }
             const sedeActualizar = await this._sedesSercio
-                .findOne(Number(idSede));
+                .findOne(Number(idSedes));
             response.render(
                 'crear-sede', {//ir a la pantalla de crear-usuario
                     sede: sedeActualizar,
                     mensaje: mensaje,
-                    idSede: idSede,
+                    idSede: idSedes,
                 }
             )
     }
 
 
 
-    @Post('actualizar-sede/:idSede')
+    @Post('actualizar-sede/:idSedes')
     async actualizarPacienteFormulario(
-        @Param('idSede') idSede: string,
+        @Param('idSedes') idSedes: string,
         @Res() response,
         @Body() sede: SedesDto
     ) {
         let mensaje = undefined;
 
        
-            sede.idSedes = +idSede;
+            sede.idSedes = +idSedes;
 
             await this._sedesSercio.update(sede);
 
             const parametrosConsulta = `?accion=actualizar&nombre=${sede.ciudad}`;
 
-            response.redirect('/sede/crear-sede' + parametrosConsulta);
+            response.redirect('/sede/inicio' + parametrosConsulta);
         }
 }
