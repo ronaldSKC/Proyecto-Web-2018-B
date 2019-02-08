@@ -37,6 +37,25 @@ export class MascotaController {
 
         usuario= await this._usuarioService.buscarPorId(sesion.idUsuario)
 
+        let razasPerros:RazaEntity[]
+        let razasGatos:RazaEntity[]
+        let sedes:SedesEntity[]
+
+        const consultaPerros: FindManyOptions<RazaEntity>={
+            where: [{
+                especie: 1
+            }]}
+            razasPerros = await this._razaService.obtenerRazasPorEspecie(consultaPerros)
+
+        const consultaGatos: FindManyOptions<RazaEntity>={
+            where: [{
+                especie: 2
+            }]}
+        razasGatos = await this._razaService.obtenerRazasPorEspecie(consultaGatos)
+
+
+        sedes = await this._sedeService.obtenerRol()
+
 
         if (accion && nombre) {
             switch (accion) {
@@ -95,7 +114,10 @@ export class MascotaController {
                 arregloMascotas: mascotas,
                 mensaje: mensaje,
                 clase: clase,
-                usuario: usuario
+                usuario: usuario,
+                arregloRazasPerros: razasPerros,
+                arregloRazasGatos: razasGatos,
+                arregloSedes: sedes,
             })
 
     }

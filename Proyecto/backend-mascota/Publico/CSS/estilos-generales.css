@@ -37,6 +37,13 @@ h1{
 }
 
 .container-fluid
+ {
+     border: 1px #117a8b solid;
+
+ }
+
+.container
 {
-    border: 1px #117a8b solid;
+    border: 1px #171a1d wave;
+
 }
