@@ -14,20 +14,39 @@ export class AppController {
   @Get('login')
   mostrarLogin(
       @Res() res,
-      @Query("mensaje") mensajeObtenido,
-      @Query('error') error: string
+      @Query('error') error: string,
+      @Query('mensaje') mensajeRegistro:string,
+      @Query('tipo') tipo:string
   ) {
     let mensaje = undefined;
+    let clase = undefined;
+    let mensajeUsuario=undefined;
+
 
     if(error){
       mensaje = "Datos erroneos";
     }
-    let mensajeVerificacion=undefined;
-    if(mensajeObtenido){
-      mensajeVerificacion=mensajeObtenido;
+
+    if(mensajeRegistro && tipo){
+      switch (tipo) {
+
+        case 'verificacion':
+          mensajeUsuario= mensajeRegistro
+          clase= 'alert alert-info'
+          break;
+        case 'registro':
+          mensajeUsuario= mensajeRegistro
+          clase= 'alert alert-danger'
+          break;
+      }}
+
+      res.render('login', {
+        mensajeRegistro: mensajeRegistro,
+        mensaje:mensaje,
+        clase:clase
+      })
     }
-    res.render('login', {mensajeVerificacion: mensajeVerificacion, mensaje:mensaje})
-  }
+
 
 
 
@@ -35,12 +54,14 @@ export class AppController {
   async metodoLogin(
       @Body('correo') correo: string,
       @Body('password') password: string,
+      @Body('nickname') nickname: string,
       @Res() res,
       @Session() sesion,
 
   ) {
 
     let mensaje = undefined;
+
 
     /*const objetoValidacionLogin = new CreateLoginDto();
     objetoValidacionLogin.correo = correo;
@@ -84,18 +105,21 @@ export class AppController {
 
         }
       } else {
-        res.redirect('/login?mensaje=espere estamos verificando sus datos')
+        res.redirect('/login?mensaje=espere estamos verificando sus datos&tipo=verificacion')
         //res.send('sin rol')
         //throw new BadRequestException({mensaje: 'Espere estamos verificando sus datos'})
 
       }
     }else{
-      res.redirect('/login')
+      let mensajeConsulta=`?mensaje=Usted no se encuentra registrado en el sistema&tipo=registro`
+      res.redirect('/login'+mensajeConsulta)
     }
   }
 
+
+
   @Get('logout')
-   logout(
+  logout(
       @Res() res,
       @Session() sesion,
   )

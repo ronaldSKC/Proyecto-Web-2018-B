@@ -16,16 +16,56 @@ export class UsuarioService {
 
         const consulta: FindManyOptions<UsuarioEntity> = {
             where: {
-                correo: correo,
-                password: password
+                emailUsuario: correo,
+                passwordUsuario: password
             },
         };
         return await this._usuarioRepository.findOne(consulta)
 
     }
 
+
+    buscar(parametros?: FindManyOptions<UsuarioEntity>): Promise<UsuarioEntity[]> {
+        return this._usuarioRepository.find(parametros)
     }
 
+
+    async crear(nuevoUsuario: Usuario): Promise<UsuarioEntity> {
+
+        // Instanciar una entidad -> .create()
+        const usuarioEntity = this._usuarioRepository.create(nuevoUsuario);
+        const usuarioCreado = await this._usuarioRepository.save(usuarioEntity);
+        return usuarioCreado;
+    }
+
+
+    borrar(id: number): Promise<UsuarioEntity> {
+        const usuarioEntityEliminar = this._usuarioRepository.create({
+            idUsuario: id
+        });
+        return this._usuarioRepository.remove(usuarioEntityEliminar)
+    }
+
+    buscarPorId(id: number): Promise<UsuarioEntity> {
+        return this._usuarioRepository.findOne(id)
+    }
+
+
+
+    }
+
+
+   export interface Usuario{
+    idUsuario?:number;
+    nickname: string;
+    nombreCompletoUsuario:string;
+    direccionUsuario: string;
+    telefonoUsuario: string;
+    emailUsuario:string;
+    passwordUsuario:string;
+    fotoUsuario:string;
+
+   }
 
 
 

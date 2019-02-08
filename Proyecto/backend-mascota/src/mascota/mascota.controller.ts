@@ -6,12 +6,15 @@ import {FindManyOptions, Like} from "typeorm";
 import {SedesEntity} from "../sedes/sedes.entity";
 import {RazaService} from "../raza/raza.service";
 import {SedesService} from "../sedes/sedes.service";
+import {UsuarioEntity} from "../usuario/usuario.entity";
+import {UsuarioService} from "../usuario/usuario.service";
 
 @Controller('mascota')
 export class MascotaController {
     constructor(private readonly _mascotaService: MascotaService,
                 private readonly _razaService: RazaService,
-                private readonly _sedeService: SedesService
+                private readonly _sedeService: SedesService,
+                private readonly _usuarioService: UsuarioService
     ){
 
     }
@@ -25,69 +28,75 @@ export class MascotaController {
         @Session() sesion
     ) {
 
+        console.log(sesion)
 
-            let mensaje = undefined;
-            console.log(sesion)
+        let mensaje = undefined;
         let clase = undefined;
 
-            if (accion && nombre) {
-                switch (accion) {
-                    case 'actualizar':
-                        mensaje = `Registro ${nombre} actualizado`;
-                        clase = 'alert alert-danger';
-                        break;
-                    case 'borrar':
-                        mensaje = `Registro ${nombre} eliminado`;
-                        clase = 'alert alert-info';
-                        break;
-                    case 'crear':
-                        mensaje = `Registro ${nombre} creado`;
-                        clase = 'alert alert-success';
-                        break;
-                }
+        let usuario: UsuarioEntity;
+
+        usuario= await this._usuarioService.buscarPorId(sesion.idUsuario)
+
+
+        if (accion && nombre) {
+            switch (accion) {
+                case 'actualizar':
+                    mensaje = `Registro ${nombre} actualizado`;
+                    clase = 'alert alert-danger';
+                    break;
+                case 'borrar':
+                    mensaje = `Registro ${nombre} eliminado`;
+                    clase = 'alert alert-info';
+                    break;
+                case 'crear':
+                    mensaje = `Registro ${nombre} creado`;
+                    clase = 'alert alert-success';
+                    break;
             }
+        }
 
-            let mascotas: MascotaEntity[];
+        let mascotas: MascotaEntity[];
 
-            if (busqueda) {
+        if (busqueda) {
 
-                const consulta: FindManyOptions<MascotaEntity> = {
-                    where: [
-                        {
-                            nombreMascota: Like(`%${busqueda}%`)
-                        },
-                        {
-                            generoMascota: Like(`%${busqueda}%`)
-                        },
-                        {
-                            //usuario: sesion.idUsuario,
-                            edadMascota: Like(`%${busqueda}%`)
-                        },
-                        {
-                            //usuario: sesion.idUsuario,
-                            tamanioMascota: Like(`%${busqueda}%`)
-                        },
+            const consulta: FindManyOptions<MascotaEntity> = {
+                where: [
+                    {
+                        nombreMascota: Like(`%${busqueda}%`)
+                    },
+                    {
+                        generoMascota: Like(`%${busqueda}%`)
+                    },
+                    {
+                        //usuario: sesion.idUsuario,
+                        edadMascota: Like(`%${busqueda}%`)
+                    },
+                    {
+                        //usuario: sesion.idUsuario,
+                        tamanioMascota: Like(`%${busqueda}%`)
+                    },
 
-                    ]
-                };
+                ]
+            };
 
-                mascotas = await this._mascotaService.buscar(consulta);
-            } else {
+            mascotas = await this._mascotaService.buscar(consulta);
+        } else {
 
-               /* const consulta: FindManyOptions<MascotaEntity> = {
-                    where: [{usuario: sesion.idUsuario}]
-                }*/
-                mascotas = await this._mascotaService.buscar();
-            }
+            /* const consulta: FindManyOptions<MascotaEntity> = {
+                 where: [{usuario: sesion.idUsuario}]
+             }*/
+            mascotas = await this._mascotaService.buscar();
+        }
 
 
 
-            response.render('lista-mascotas',
-                {
-                    arregloMascotas: mascotas,
-                    mensaje: mensaje,
-                    clase: clase
-                })
+        response.render('lista-mascotas',
+            {
+                arregloMascotas: mascotas,
+                mensaje: mensaje,
+                clase: clase,
+                usuario: usuario
+            })
 
     }
 
@@ -114,7 +123,7 @@ export class MascotaController {
     }
 
     @Post('crear-mascota')
-   async metodoMascota(
+    async metodoMascota(
         @Res() response,
         @Body() mascota:Mascota,
         @Session() sesion
@@ -152,12 +161,12 @@ export class MascotaController {
     ) {
 
 
-            let mensaje = undefined;
+        let mensaje = undefined;
 
 
-            if (error) {
-                mensaje = "Datos erroneos";
-            }
+        if (error) {
+            mensaje = "Datos erroneos";
+        }
 
         let razas:RazaEntity[]
         let sedes:SedesEntity[]
@@ -166,18 +175,18 @@ export class MascotaController {
         sedes = await this._sedeService.obtenerRol()
 
 
-            const mascotaActualizar = await this._mascotaService
-                .buscarPorId(Number(idMascota));
+        const mascotaActualizar = await this._mascotaService
+            .buscarPorId(Number(idMascota));
 
-            response.render(
-                'crear-mascota', {//ir a la pantalla de crear-usuario
-                    mascota: mascotaActualizar,
-                    mensaje: mensaje,
-                    idMascota: idMascota,
-                    arregloRazas: razas,
-                    arregloSedes: sedes,
-                }
-            )
+        response.render(
+            'crear-mascota', {//ir a la pantalla de crear-usuario
+                mascota: mascotaActualizar,
+                mensaje: mensaje,
+                idMascota: idMascota,
+                arregloRazas: razas,
+                arregloSedes: sedes,
+            }
+        )
 
     }
 
@@ -210,14 +219,14 @@ export class MascotaController {
 
             response.redirect('/evento/actualizar-evento/'+ idEvento + parametrosConsulta)
         } else {*/
-            mascota.idMascota = +idMascota;
+        mascota.idMascota = +idMascota;
 
-            await this._mascotaService.actualizar(mascota);
+        await this._mascotaService.actualizar(mascota);
 
-            const parametrosConsulta = `?accion=actualizar&nombre=${mascota.nombreMascota}`;
+        const parametrosConsulta = `?accion=actualizar&nombre=${mascota.nombreMascota}`;
 
-            response.redirect('/mascota/inicio' + parametrosConsulta);
-        }
+        response.redirect('/mascota/inicio' + parametrosConsulta);
+    }
 
 }
 

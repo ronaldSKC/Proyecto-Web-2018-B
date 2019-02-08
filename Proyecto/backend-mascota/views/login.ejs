@@ -2,11 +2,36 @@
 <html lang="es">
 <head>
 
+
+
     <% const existeMensajeError = typeof mensaje !== "undefined"%>
+    <% const existeMensaje = typeof mensajeRegistro !== "undefined"%>
+
 
     <% if (existeMensajeError){%>
     <p>MENSAJE: <%=mensaje%></p>
     <%}%>
+
+    <% if (existeMensajeError){%>
+
+        <div class="alert alert-danger" role="alert">
+            <span class="font-weight-bold">
+                MENSAJE:
+            </span> : <%= mensaje %>
+        </div>
+    <%}%>
+
+
+    <% if (existeMensaje){%>
+
+        <div class="<%= clase %>" role="alert">
+            <span class="font-weight-bold">
+                MENSAJE:
+            </span> : <%= mensajeRegistro %>
+        </div>
+    <%}%>
+
+
 
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -24,11 +49,7 @@
 <body>
 
 
-<% const existeMensaje = typeof mensajeVerificacion !== "undefined"%>
 
-<% if (existeMensaje){%>
-<p>MENSAJE: <%=mensajeVerificacion%></p>
-<%}%>
 
 <br><br>
 

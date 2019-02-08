@@ -89,7 +89,6 @@
                         class="form-control">
                     <% arregloSedes.forEach( (sedeLista)=> { %>
                     <option value="<%=sedeLista.idSedes%>">
-
                         <%=sedeLista.ciudad%></option>
                     <% }) %>
                 </select>
@@ -140,14 +139,13 @@
 
 
         <div class="row">
-
             <div class="col-sm-5">
                 <div class="form-group"></div>
                 <label for="estadoMascota" hidden="hidden">Estado de la mascota</label>
                 <input type="text"
                        name="estadoMascota"
                        id="estadoMascota"
-                       value= "<%= estaCreando ? '0' : mascota.colorMascota%>"
+                       value= "<%= estaCreando ? '0' : '0'%>"
                        readonly="readonly"
                        class="form-control"
                        hidden="hidden">
@@ -170,9 +168,11 @@
 
     </form>
 
-    <a href="/mascota/inicio>
+    <a href="/mascota/inicio">
         <button class="btn btn-outline-info espaciado-boton">Regresar</button>
     </a>
+
+
 
 </div>
 

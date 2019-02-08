@@ -47,9 +47,15 @@ export class UsuarioEntity{
     @Column({
         name: 'password_usuario',
         type: 'varchar',
-        length: 20
+        length: 16
     })
     passwordUsuario: string;
+
+    @Column({
+        name: 'foto_usuario',
+        type: 'varchar',
+    })
+    fotoUsuario: string;
 
     @OneToMany(
         type => AdopcionEntity,
