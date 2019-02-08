@@ -1,10 +1,19 @@
 <%- include('header')%>
+<% const estaCreando = typeof sede === "undefined"%>
+<% const existeMensaje = typeof mensaje !== "undefined"%>
+<br>
+<br>
+<br>
+<br>
 <div class="container">
-    <h1>
-        <%= h1%> Sede
-    </h1>
-    <form action="/sede/crear-sede" method="POST">
+    <h1><%= estaCreando ? 'REGISTRAR':'ACTUALIZAR' %>SEDE</h1>
+    <% if (existeMensaje){%>
+    <p>MENSAJE: <%=mensaje%></p>
+    <%}%>
+    <form action="/sede/<%= estaCreando ? 'crear' : 'actualizar' %>-sede/<%= estaCreando ? '' : sede.idSedes %>" method="POST">
+        <br>
         <div class="row">
+
             <div class="col-sm-6">
                 <div>
                     <label for="ciudad">Ciudad</label>
@@ -34,7 +43,64 @@
                 </div>
             </div>
         </div>
+        <br>
+        <div>
+            <button class="btn btn-outline-success">
+                <%= estaCreando ? 'Crear' : 'Actualizar'%> sede
+            </button>
+        </div>
     </form>
+    <div class="row">
+        <div class="table table-striped">
+            <h2>Listado de Sedes</h2>
+            <table class="table table-hover animated slideInLeft">
+                <thead>
+                    <tr>
+                        <th>Ciudad</th>
+                        <th>Calle Principar</th>
+                        <th>Calle Secundaria</th>
+                        <th>Referencia</th>
+                        <th>Opcion</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% arregloSedes.map( (sede)=> { %>
+                    <tr>
+                        <td>
+                            <%= sede.ciudad%>
+                        </td>
+                        <td>
+                            <%= sede.callePrincipal%>
+                        </td>
+                        <td>
+                            <%= sede.calleSecundaria%>
+                        </td>
+                        <td>
+                            <%= sede.referencia%>
+                        </td>
+                        <td>
+                            <form action="/sede/eliminar/<%= sede.id%>" method="POST">
+                                <button class="btn btn-outline-danger btn-block estaciado-boton" type="submit">
+                                    Eliminar</button>
+                            </form>
+
+                            <br>
+                            <a href="/sede/crear-sede/<%= sede.id%>" class="quitar-link">
+                                <button class="btn btn-outline-secondary btn-block estaciado-boton">Actualizar</button>
+                            </a>
+                        </td>
+
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </div>
+<br>
+<br>
+
 <%- include('librerias')%>
 <%- include('footer')%>

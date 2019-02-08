@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { Repository } from "typeorm";
+import { Repository, FindManyOptions } from "typeorm";
 import { SedesEntity } from "./sedes.entity";
 import { SedesDto } from "./dto/sedes.dto";
 
@@ -9,33 +9,37 @@ export class SedesService {
 
     constructor(
         @InjectRepository(SedesEntity)
-        private readonly _sedesService: Repository<SedesEntity>
+        private readonly _sedesRepository: Repository<SedesEntity>
     ) { }
-
+    obtenerRol(): Promise<SedesEntity[]> {
+        return this._sedesRepository.find()
+    }
     async findOne(id: number) {
 
-        return await this._sedesService.findOne(id);
+        return await this._sedesRepository.findOne(id);
     }
 
-    async findAll() {
-        return await this._sedesService.find();
+    async findAll(parametros?: FindManyOptions<SedesEntity>): Promise<SedesEntity[]> {
+        return await this._sedesRepository.find(parametros)
+    
     }
 
     async create(datosCrearEventoPelicula: SedesDto) {
-        return await this._sedesService.save(datosCrearEventoPelicula)
+        return await this._sedesRepository.save(datosCrearEventoPelicula)
     }
 
-    async delete(id: number) {
-        return await this._sedesService.delete(id);
+    async delete(idSede: number):Promise<SedesEntity> {
+        const sedeEntityAEliminar = this._sedesRepository
+        .create({
+            idSedes:idSede
+        })
+        return await this._sedesRepository.remove(sedeEntityAEliminar);
     }
 
-    async update(id: number, datosEditarEventoPelicula: SedesDto) {
-        const editarEventoPelicula = this.findOne(id)
-        if (editarEventoPelicula) {
-            return await this._sedesService.update(id, datosEditarEventoPelicula)
-        } else {
-            console.log('usuario no econtrado, se lo actualizara')
-        }
+    async update(nuevaMascota: SedesDto): Promise<SedesEntity> {
+
+        const medicamentoEntity = this._sedesRepository.create(nuevaMascota);
+        return this._sedesRepository.save(medicamentoEntity)
     }
 
 }

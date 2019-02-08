@@ -192,37 +192,24 @@ export class MascotaController {
         let mensaje = undefined;
 
         /*const objetoValidacionEvento = new CreateEventoDto();
-
         objetoValidacionEvento.nombreEvento = evento.nombreEvento
-
         const fec = new Date(evento.fechaEvento).toISOString();
         objetoValidacionEvento.fechaEvento = fec
-
         const errores: ValidationError[] =
             await validate(objetoValidacionEvento);
-
         const hayErrores = errores.length > 0;
-
         if (hayErrores) {
             console.error(errores);
-
             const parametrosConsulta = `?error=${errores[0].constraints}`;
-
             response.redirect('/evento/actualizar-evento/'+ idEvento + parametrosConsulta)
         } else {*/
             mascota.idMascota = +idMascota;
 
-            await this._eventoService.actualizar(evento);
+            await this._mascotaService.actualizar(mascota);
 
-            const parametrosConsulta = `?accion=actualizar&nombre=${evento.nombreEvento}`;
+            const parametrosConsulta = `?accion=actualizar&nombre=${mascota.nombreMascota}`;
 
-            response.redirect('/evento/inicio' + parametrosConsulta);
+            response.redirect('/mascota/inicio' + parametrosConsulta);
         }
-    }
-
-
-
-
 
 }
-
