@@ -1,0 +1,94 @@
+<% const existeMensaje = typeof mensaje !== "undefined"%>
+
+<% const existeRol = typeof mensajeRol!== "undefined"%>
+<br><br><br>
+
+<%- include('header'); %>
+
+<% if (existeMensaje){%>
+<p>MENSAJE: <%=mensaje%></p>
+<%}%>
+
+<% if (existeRol){%>
+<p>MENSAJE: <%=mensajeRol%></p>
+<%}%>
+
+
+
+
+<div class="row">
+    <div class="col-lg-6 ">
+        <div class="container-fluid ">
+            <br>
+            <h1><%=usuario.nickname%></h1><br>
+            <div class="row" >
+                <div class="col-sm-12" align="center" >
+                    <div class="card" style="width: 18rem;">
+                        <img src="<%=usuario.fotoUsuario %>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">
+                            <div><%=usuario.nombreCompletoUsuario%></div>
+                            <div><%=usuario.direccionUsuario%></div>
+                            <div><%=usuario.telefonoUsuario%></div>
+                            <div> <%=usuario.emailUsuario%></div>
+                            </p>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="container-fluid">
+                    <br>
+                    <h1>Roles del usuario</h1>
+                    <table>
+                        <%rolUsuario.forEach((rol)=> { %>
+                            <tr>
+                                <td><%= rol.rol.nombreRol%>
+                                    <form action="/rol-por-usuario/borrar/<%=rol.idRolPorUsuario%>" method="POST">
+                                        <button type="submit" class="btn btn-outline-danger espaciado-boton"> X </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </table>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="container-fluid" >
+                    <br>
+                    <h1>Roles que pueden ser agregados</h1>
+                    <br><br>
+                    <form action="/rol-por-usuario/asignar-rol/<%=usuario.idUsuario%>" method="POST">
+                        <div align="center">
+                            <label for="rol"></label>
+                            <select name="rol" id="rol">
+                                <% rol.forEach( (rolLista)=> { %>
+                                <option value="<%=rolLista.idRol%>">
+                                    <%=rolLista.nombreRol%></option>
+                                <% }) %>
+                            </select>
+                            <button>Agregar rol</button>
+                        </div>
+                    </form>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="/usuario/inicio">
+    <button class="btn btn-outline-info espaciado-boton" >Regresar</button>
+</a>
+
+
