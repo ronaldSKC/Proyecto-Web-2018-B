@@ -1,4 +1,3 @@
-
 import {Controller, Get, Param, Post, Res, Session} from "@nestjs/common";
 import {RazaService} from "../raza/raza.service";
 import {AdopcionService} from "./adopcion.service";
@@ -9,6 +8,17 @@ import {MascotaEntity} from "../mascota/mascota.entity";
 
 Controller('adopcion')
 export class AdopcionController{
+    
+    constructor(
+        private readonly _adopcionservice:AdopcionService
+        ){  }
+
+    @Get('solicitud')
+    solicitudAdopcion(
+        @Res() response
+    ){
+        response.render('adoptarSolicitud')
+}
 
     constructor(private readonly _adopcionService:AdopcionService,
                 private readonly _usuarioService: UsuarioService,){
