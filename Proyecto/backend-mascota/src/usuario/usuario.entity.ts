@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
 import { AdopcionEntity } from "src/adopcion/adopcion.entity";
 import { type } from "os";
-import { RolPorUsuarioEntity } from "src/rol-por-usuario/rolPorUsuario.entity";
+import { RolPorUsuarioEntity } from "src/rol-por-usuario/rol-por-usuario.entity";
 
 @Entity('usuario')
 export class UsuarioEntity{
@@ -47,9 +47,15 @@ export class UsuarioEntity{
     @Column({
         name: 'password_usuario',
         type: 'varchar',
-        length: 20
+        length: 16
     })
     passwordUsuario: string;
+
+    @Column({
+        name: 'foto_usuario',
+        type: 'varchar',
+    })
+    fotoUsuario: string;
 
     @OneToMany(
         type => AdopcionEntity,

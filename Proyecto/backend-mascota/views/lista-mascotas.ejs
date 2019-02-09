@@ -1,0 +1,212 @@
+<% const existeMensaje = typeof mensaje !== "undefined"%>
+<%- include('header'); %>
+<br><br><br>
+
+
+<% if (existeMensaje){%>
+
+    <div class="<%= clase %>" role="alert">
+            <span class="font-weight-bold">
+                MENSAJE:
+            </span> : <%= mensaje %>
+    </div>
+<%}%>
+
+<!-- ##########################AQUI TENEMOS LA PRIMERA DIVISION DEL CONTENEDOR########################### -->
+
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Aqui inicia el Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Registrar Mascota</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <!-- Aqui empieza el nav -->
+
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Perro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Gato</a>
+                    </li>
+
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+
+                        <%- include('crear-canino'); %>
+
+                    </div>
+
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+                        <%- include('crear-felino'); %>
+                    </div>
+                </div>
+                <!-- Aqui termina el nav -->
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Aqui termina el Modal -->
+
+
+
+
+
+
+
+<div class="row">
+    <div class="col-lg-3 ">
+        <div class="container-fluid ">
+            <br>
+            <h2 align="center"><%=usuario.nickname%></h2><br>
+            <div class="row" >
+                <div class="col-sm-12" align="center" >
+                    <div class="card" style="width: 18rem;">
+                        <img src="<%=usuario.fotoUsuario %>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">
+                            <div><%=usuario.nombreCompletoUsuario%></div>
+                            <div><%=usuario.direccionUsuario%></div>
+                            <div><%=usuario.telefonoUsuario%></div>
+                            <div> <%=usuario.emailUsuario%></div>
+                            </p>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+            <!--Aqui empieza el grupo de botones-->
+
+            <div class="row">
+                <div class="col-lg-12" align="center">
+
+                    <div class="btn-group-vertical col-lg-12" role="group" aria-label="Button group with nested dropdown">
+                        <button type="button" class="btn btn-outline-info btn-block">Aceptar/Negar solicitudes</button>
+                        <button type="button" class="btn btn-outline-info btn-block" data-toggle="modal" data-target="#exampleModal">Registrar mascota</button>
+                        <button type="button" class="btn btn-outline-info btn-block"> Ingresar nueva sede</button>
+                        <a href="/usuario/inicio"> <button type="button" class="btn btn-outline-info btn-block" data> Administrar usuario</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--Aqui termina el grupo de botones-->
+
+
+
+
+            <div class="row">
+                <div class="col-lg-12"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12"></div>
+            </div>
+
+
+
+            <br><br><br>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <!-- ##########################AQUI TENEMOS LA SEGUNDA DIVISION DEL CONTENEDOR########################### -->
+
+    <div class="col-lg-9">
+        <div class="container-fluid ScrollableContainer ">
+            <div class="row">
+                <div class="col-lg-6"></div>
+                <div class="col-lg-6" align="center">
+                    <form action="/mascota/inicio" method="get">
+                        <label for="busqueda">Búsqueda mascota</label>
+                        <input id="busqueda" type="text" name="busqueda" class="form-group">
+                        <button class="btn btn-outline-primary  espaciado-boton">Buscar</button>
+                    </form>
+                </div>
+
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 align="center">Mascotas en adopción</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <% arregloMascotas.forEach( (mascota)=> { %>
+                <div class="col-lg-4">
+                    <table class="table table-hover" content="center" >
+                        <tr>
+                            <td height="250"><img width="80%" height="100%" src="<%=mascota.fotoMascota %>" alt=""></td>
+                        </tr>
+                        <tr>
+                            <td><h4><%=mascota.nombreMascota %></h4></td>
+                        </tr>
+                        <tr>
+
+                            <td><%=mascota.descripcionMascota%></td>
+                        </tr>
+
+                        <tr><td>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <form action="/mascota/eliminar-mascota/<%= mascota.idMascota %>" method="POST">
+                                            <button  class="btn btn-outline-danger espaciado-boton" type="submit"
+                                                     type="submit"> X </button>
+                                        </form>
+                                    </div>
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-8">
+                                        <a href="/mascota/ver-detalle-mascota/<%= mascota.idMascota %>">
+                                            <button  class="btn btn-outline-info  espaciado-boton" type="submit"> Ver Mascota</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+
+                        </tr>
+                    </table>
+                </div>
+                <% }) %>
+            </div>
+
+        </div>
+
+        <br>
+        <br>
+    </div>
+</div>
+
+
+
+<%- include('librerias')%>

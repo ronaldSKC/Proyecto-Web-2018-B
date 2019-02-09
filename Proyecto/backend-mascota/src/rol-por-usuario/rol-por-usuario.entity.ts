@@ -18,6 +18,6 @@ export class RolPorUsuarioEntity {
 
     @ManyToOne(type => RolEntity,
         rol => rol.rolesPorUsuarios)
-    rol: UsuarioEntity;
+    rol: RolEntity;
     
 }

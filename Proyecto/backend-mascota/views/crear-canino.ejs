@@ -1,15 +1,13 @@
 <%- include('header') %>
-<% const estaCreando = typeof mascota === "undefined"%>
 
 <% const existeMensaje = typeof mensaje !== "undefined"%>
 
 <div class="container"  style="width: 100%">
-    <h1><%= estaCreando ? '':'ACTUALIZAR' %>MASCOTA</h1>
     <% if (existeMensaje){%>
     <p>MENSAJE: <%=mensaje%></p>
     <%}%>
 
-    <form action="/mascota/<%= estaCreando ? 'crear' : 'actualizar' %>-mascota/<%= estaCreando ? '' : mascota.idMascota %>"
+    <form action="/mascota/crear-mascota"
           method="POST">
 
         <div class="row" >
@@ -20,9 +18,7 @@
                        id="nombreMascota"
                        name="nombreMascota"
                        type="text"
-                       class="form-control"
-                       value="<%= estaCreando ? '' : mascota.nombreMascota%>"
-                >
+                       class="form-control">
             </div>
         </div>
 
@@ -33,9 +29,7 @@
                 <select name="generoMascota"
                         id="generoMascota"
                         class="form-control">
-                    <option value="<%= estaCreando ? 'Hembra' : mascota.generoMascota%>">
-                        <%= estaCreando ? 'Hembra' : mascota.generoMascota%>
-                    </option>
+                    <option value="Hembra">Hembra</option>
                     <option value="Macho">Macho</option>
                 </select>
 
@@ -47,8 +41,7 @@
                 <input type="text"
                        id="edadMascota"
                        name="edadMascota"
-                       class="form-control"
-                       value="<%= estaCreando ? '' : mascota.edadMascota%>">
+                       class="form-control">
             </div>
         </div>
 
@@ -60,8 +53,7 @@
                 <input type="text"
                        name="tamanioMascota"
                        id="tamanioMascota"
-                       class="form-control"
-                       value="<%= estaCreando ? '' : mascota.tamanioMascota%>">
+                       class="form-control">
             </div>
 
             <div class="col-sm-5">
@@ -70,9 +62,7 @@
                 <select name="colorMascota"
                         id="colorMascota"
                         class="form-control">
-                    <option value="<%= estaCreando ? 'Blanco' : mascota.colorMascota%>">
-                        <%= estaCreando ? 'Blanco' : mascota.colorMascota%>
-                    </option>
+                    <option value="Blanco">Blanco </option>
                     <option value="Crema">Crema</option>
                     <option value="Negro">Negro</option>
                     <option value="Cafe">Cafe</option>
@@ -100,7 +90,7 @@
                 <select name="raza"
                         id="raza"
                         class="form-control">
-                    <% arregloRazas.forEach( (razaLista)=> { %>
+                    <% arregloRazasPerros.forEach( (razaLista)=> { %>
                     <option value="<%=razaLista.idRaza%>">
 
                         <%=razaLista.nombreRaza%></option>
@@ -119,7 +109,7 @@
                        name="fotoMascota"
                        id="fotoMascota"
                        class="form-control"
-                       value="<%= estaCreando ? '' : mascota.fotoMascota%>">
+                       >
             </div>
         </div>
 
@@ -132,7 +122,7 @@
                         id="descripcionMascota"
                         rows="4"
                         class="form-control">
-                <%= estaCreando ? '' : mascota.descripcionMascota%>
+
                 </textarea>
             </div>
         </div>
@@ -145,7 +135,7 @@
                 <input type="text"
                        name="estadoMascota"
                        id="estadoMascota"
-                       value= "<%= estaCreando ? '0' : '0'%>"
+                       value= 0
                        readonly="readonly"
                        class="form-control"
                        hidden="hidden">
@@ -159,29 +149,14 @@
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-4">
-                <button class="btn btn-outline-success btn-block espaciado-boton">
-                    <%= estaCreando ? 'Crear' : 'Actualizar'%> mascota</button>
+                <button class="btn btn-outline-info btn-block espaciado-boton">
+                   Crear mascota</button>
             </div>
             <div class="col-sm-3"></div>
 
         </div>
 
     </form>
-
-    <div class="row">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-4">
-            <a href="/mascota/ver-detalle-mascota/<%=mascota.idMascota%>">
-                <button class="btn btn-outline-info btn-block espaciado-boton">Regresar</button>
-            </a>
-        </div>
-        <div class="col-sm-3"></div>
-
-    </div>
-
-
-
-
 
 </div>
 

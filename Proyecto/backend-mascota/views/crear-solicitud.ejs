@@ -1,0 +1,96 @@
+<%- include('header') %>
+
+<% const existeMensaje = typeof mensaje !== "undefined"%>
+
+<div class="container col-lg-4 "  style="width: 100%">
+    <h1>CREAR SOLICITUD</h1>
+
+
+    <% if (existeMensaje){%>
+
+        <div class="<%= clase %>" role="alert">
+            <span class="font-weight-bold">
+                MENSAJE:
+            </span> : <%= mensaje %>
+        </div>
+    <%}%>
+
+
+    <form action="/adopcion/crear-adopcion" method="POST">
+
+        <div class="row" >
+            <div class="col-sm-10">
+                <div class="form-group"></div>
+                <label for="telefonoCelular"> Numéro de celular </label>
+                <input type="text"
+                       id="telefonoCelular"
+                       name="telefonoCelular"
+                       type="text"
+                       class="form-control">
+            </div>
+        </div>
+
+
+        <div class="row" >
+            <div class="col-sm-10">
+                <div class="form-group"></div>
+                <label for="fechaSolicitud"> Fecha de solicitud</label>
+                <input type="text"
+                       id="fechaSolicitud"
+                       name="fechaSolicitud"
+                       type="text"
+                       class="form-control">
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-sm-10">
+                <div class="form-group"></div>
+                <label for="comentario">Comentario</label>
+                <textarea
+                        name="comentario"
+                        id="comentario"
+                        rows="4"
+                        class="form-control">
+                </textarea>
+            </div>
+        </div>
+
+        <div class="row" >
+            <div class="col-sm-10">
+                <div class="form-group"></div>
+                <label for="estadoSolicitud"> Estado de la solicitud </label>
+                <input type="text"
+                       id="estadoSolicitud"
+                       name="estadoSolicitud"
+                       type="boolean"
+                       class="form-control"
+                       value="0"
+                       hidden>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-4">
+                <button class="btn btn-outline-info btn-block espaciado-boton">
+                    Enviar Solicitud</button>
+            </div>
+            <div class="col-sm-3"></div>
+
+        </div>
+
+    </form>
+
+    <a href="/login">
+        <button class="btn btn-outline-info espaciado-boton">Regresar</button>
+    </a>
+
+</div>
+
+
+<%- include('librerias')%>
+

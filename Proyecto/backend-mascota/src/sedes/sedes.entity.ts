@@ -42,8 +42,8 @@ export class SedesEntity{
 
 
 
-    @ManyToOne(
+    @OneToMany(
         type => MascotaEntity,
-        mascota => mascota.sedes)
-    mascota : MascotaEntity;
+        mascota => mascota.sede)
+    mascotas : MascotaEntity[];
 }
