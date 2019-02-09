@@ -15,7 +15,7 @@ export class MascotaController {
                 private readonly _razaService: RazaService,
                 private readonly _sedeService: SedesService,
                 private readonly _usuarioService: UsuarioService
-    ){
+    ) {
 
     }
 
@@ -29,7 +29,7 @@ export class MascotaController {
     ) {
 
         console.log(sesion)
-        if(sesion.rol==='administrador') {
+        if (sesion.rol === 'administrador') {
 
             let mensaje = undefined;
             let clase = undefined;
@@ -121,7 +121,7 @@ export class MascotaController {
                     arregloRazasGatos: razasGatos,
                     arregloSedes: sedes,
                 })
-        }else{
+        } else {
             response.redirect('/login')
         }
 
@@ -138,7 +138,7 @@ export class MascotaController {
     ) {
 
         console.log(sesion)
-        if (sesion.rol==='usuario') {
+        if (sesion.rol === 'usuario') {
 
             let mensaje = undefined;
             let clase = undefined;
@@ -230,13 +230,11 @@ export class MascotaController {
                     arregloRazasGatos: razasGatos,
                     arregloSedes: sedes,
                 })
-        }else{
+        } else {
             response.redirect('/login')
         }
 
     }
-
-
 
 
     @Get('crear-mascota')
@@ -244,7 +242,7 @@ export class MascotaController {
         @Res() response,
         @Session() sesion
     ) {
-        if(sesion.rol==='administrador') {
+        if (sesion.rol === 'administrador') {
             let razas: RazaEntity[]
             let sedes: SedesEntity[]
 
@@ -257,7 +255,7 @@ export class MascotaController {
                     arregloSedes: sedes,
                 }
             )
-        }else{
+        } else {
             response.redirect('/login')
         }
     }
@@ -265,9 +263,9 @@ export class MascotaController {
     @Post('crear-mascota')
     async metodoMascota(
         @Res() response,
-        @Body() mascota:Mascota,
+        @Body() mascota: Mascota,
         @Session() sesion
-    ){
+    ) {
         await this._mascotaService.crearMascota(mascota)
         const parametrosConsulta = `?accion=crear&nombre=${mascota.nombreMascota}`;
 
@@ -291,7 +289,6 @@ export class MascotaController {
     }
 
 
-
     @Get('actualizar-mascota/:idMascota')
     async actualizarEvento(
         @Param('idMascota') idMascota: string,
@@ -300,7 +297,7 @@ export class MascotaController {
         @Session() sesion
     ) {
 
-        if(sesion.rol==='administrador') {
+        if (sesion.rol === 'administrador') {
             let mensaje = undefined;
 
 
@@ -327,12 +324,11 @@ export class MascotaController {
                     arregloSedes: sedes,
                 }
             )
-        }else{
+        } else {
             response.redirect('/login')
         }
 
     }
-
 
 
     @Post('actualizar-mascota/:idMascota')
@@ -372,22 +368,32 @@ export class MascotaController {
     }
 
 
-
     @Get('ver-detalle-mascota/:idMascota')
     async mostrarDetalleMascota(
         @Res() response,
         @Param('idMascota') idMascota,
         @Session() sesion,
-    ){
+    ) {
+
         const mascota = await this._mascotaService.buscarPorIdDetalle(+idMascota);
 
-        console.log(mascota)
-        response.render('detalle-mascotas',
-            {mascota:mascota}
-            )
+
+        switch (sesion.rol) {
+            case 'administrador':
+                response.render('detalle-mascotas',
+                    {mascota: mascota})
+                break;
+            case 'usuario':
+                response.render('detalle-mascota-usuario',
+                    {mascota: mascota})
+                break;
+
+            default:
+                response.redirect('/login')
+
+                break;
+        }
 
     }
-
-
 }
 

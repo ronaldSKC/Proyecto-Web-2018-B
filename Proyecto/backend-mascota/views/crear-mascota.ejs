@@ -159,7 +159,7 @@
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-4">
-                <button class="btn btn-outline-info btn-block espaciado-boton">
+                <button class="btn btn-outline-success btn-block espaciado-boton">
                     <%= estaCreando ? 'Crear' : 'Actualizar'%> mascota</button>
             </div>
             <div class="col-sm-3"></div>
@@ -168,9 +168,18 @@
 
     </form>
 
-    <a href="/mascota/inicio">
-        <button class="btn btn-outline-info espaciado-boton">Regresar</button>
-    </a>
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-4">
+            <a href="/mascota/ver-detalle-mascota/<%=mascota.idMascota%>">
+                <button class="btn btn-outline-info btn-block espaciado-boton">Regresar</button>
+            </a>
+        </div>
+        <div class="col-sm-3"></div>
+
+    </div>
+
+
 
 
 

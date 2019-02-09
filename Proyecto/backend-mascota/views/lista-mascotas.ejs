@@ -170,7 +170,7 @@
                             <td height="250"><img width="80%" height="100%" src="<%=mascota.fotoMascota %>" alt=""></td>
                         </tr>
                         <tr>
-                            <td><%=mascota.nombreMascota %></td>
+                            <td><h4><%=mascota.nombreMascota %></h4></td>
                         </tr>
                         <tr>
 
@@ -180,30 +180,16 @@
                         <tr><td>
                                 <div class="row">
                                     <div class="col-lg-2">
-
                                         <form action="/mascota/eliminar-mascota/<%= mascota.idMascota %>" method="POST">
-                                            <button  class="btn btn-outline-danger  espaciado-boton" type="submit"
-                                                     type="submit">X</button>
+                                            <button  class="btn btn-outline-danger espaciado-boton" type="submit"
+                                                     type="submit"> X </button>
                                         </form>
-
                                     </div>
-
-                                    <div class="col-lg-4">
-
-                                        <a href="/mascota/actualizar-mascota/<%= mascota.idMascota %>">
-                                            <button  class="btn btn-outline-success  espaciado-boton" type="submit">Actualizar</button>
-
-                                        </a>
-
-                                    </div>
-                                    <div class="col-lg-6">
-
-
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-8">
                                         <a href="/mascota/ver-detalle-mascota/<%= mascota.idMascota %>">
                                             <button  class="btn btn-outline-info  espaciado-boton" type="submit"> Ver Mascota</button>
-
                                         </a>
-
                                     </div>
                                 </div>
                             </td>

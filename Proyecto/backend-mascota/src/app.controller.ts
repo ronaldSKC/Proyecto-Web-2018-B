@@ -124,6 +124,7 @@ export class AppController {
   {
 
     sesion.usuario = undefined;
+    sesion.rol=undefined
     sesion.destroy()
     res.redirect('login')
   }
