@@ -1,2 +1,45 @@
-<%- include('header')%>
-<div class="container" styl></div>
+
+<%- include('header') %>
+
+<div class="container"  style="width: 100%">
+    <h1>Solicitud de Adopción</h1>
+    <div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="row">
+                        <label for="nombreUsuario"> Nombres </label>
+                        <input type="text" id="nombreUsario" name="nombreUsario" class="form-control"> 
+                    </div>
+                    <div class="row">
+                        <label for="direccionUsuario"> Dirección </label>
+                        <input type="text" id="direccionUsario" name="direccionUsario" class="form-control">
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label for="telefonoFijoSolicitud"> Dirección </label>
+                            <input type="text" id="telefonoFijoSolicitud" name="telefonoFijoSolicitud" class="form-control">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="telefonoMovilSolicitud">Teléfono Movíl</label>
+                            <input type="text" id="telefonoMovilSolicitud" name="telefonoMovilSolicitud" class="form-control">
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <label for="emailSolicitud">emailSolicitud</label>
+                        <input type="text" id="emailSolicitud" name="emailSolicitud" class="form-control">
+                    </div>
+                    <div class="row">
+                        <label for="descripcionSolicitud">Descripción</label>
+                        <input type="text" id="descripcionSolicitud" name="descripcionSolicitud" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6"></div>
+        </div>
+    </div>
+</div>
+
+<%- include('librerias')%>
+<%- include('footer')%>
+

@@ -11,7 +11,6 @@ export class AdopcionEntity {
     })
     idSolicitud : number;
 
-
     @Column({
         name : 'telefono_celular',
         type: 'varchar',

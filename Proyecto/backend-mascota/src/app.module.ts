@@ -11,11 +11,13 @@ import { RolPorUsuarioEntity } from './rol-por-usuario/rol-por-usuario.entity';
 import { SedesEntity } from './sedes/sedes.entity';
 import { UsuarioEntity } from './usuario/usuario.entity';
 import {MascotaModule} from "./mascota/mascota.module";
+
 import {UsuarioModule} from "./usuario/usuario.module";
 import {RolPorUsuarioModule} from "./rol-por-usuario/rol-por-usuario.module";
 import {RolModule} from "./rol/rol.module";
 import {RazaModule} from "./raza/raza.module";
 import {SedesModule} from "./sedes/sedes.module";
+
 @Module({
   imports: [
     TypeOrmModule.forRoot(
@@ -38,7 +40,9 @@ import {SedesModule} from "./sedes/sedes.module";
           SedesEntity,
           UsuarioEntity
         ]
+
       }), MascotaModule, UsuarioModule, RolModule,RazaModule,SedesModule, RolPorUsuarioModule
+
   ],
   controllers: [AppController],
   providers: [AppService],

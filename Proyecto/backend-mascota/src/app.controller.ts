@@ -27,14 +27,12 @@ export class AppController {
     let clase = undefined;
     let mensajeUsuario=undefined;
 
-
     if(error){
       mensaje = "Datos erroneos";
     }
 
     if(mensajeRegistro && tipo){
       switch (tipo) {
-
         case 'verificacion':
           mensajeUsuario= mensajeRegistro
           clase= 'alert alert-info'
@@ -100,7 +98,7 @@ export class AppController {
         // console.log(sesion)
         switch (nombreRol) {
           case 'usuario':
-            res.redirect('mascota/inicio')
+            res.redirect('mascota/inicio-usuario')
             break;
           case 'administrador':
             res.redirect('mascota/inicio')
@@ -131,6 +129,7 @@ export class AppController {
   {
 
     sesion.usuario = undefined;
+    sesion.rol=undefined
     sesion.destroy()
     res.redirect('login')
   }
