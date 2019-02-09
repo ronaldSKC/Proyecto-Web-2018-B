@@ -22,14 +22,12 @@ export class AppController {
     let clase = undefined;
     let mensajeUsuario=undefined;
 
-
     if(error){
       mensaje = "Datos erroneos";
     }
 
     if(mensajeRegistro && tipo){
       switch (tipo) {
-
         case 'verificacion':
           mensajeUsuario= mensajeRegistro
           clase= 'alert alert-info'

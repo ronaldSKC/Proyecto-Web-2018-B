@@ -20,7 +20,7 @@ export class MascotaController {
     }
 
     @Get('inicio')
-    async paciente(
+    async mascota(
         @Res() response,
         @Query('accion') accion: string,
         @Query('nombre') nombre: string,
@@ -29,96 +29,210 @@ export class MascotaController {
     ) {
 
         console.log(sesion)
+        if(sesion.rol==='administrador') {
 
-        let mensaje = undefined;
-        let clase = undefined;
+            let mensaje = undefined;
+            let clase = undefined;
 
-        let usuario: UsuarioEntity;
+            let usuario: UsuarioEntity;
 
-        usuario= await this._usuarioService.buscarPorId(sesion.idUsuario)
+            usuario = await this._usuarioService.buscarPorId(sesion.idUsuario)
 
-        let razasPerros:RazaEntity[]
-        let razasGatos:RazaEntity[]
-        let sedes:SedesEntity[]
+            let razasPerros: RazaEntity[]
+            let razasGatos: RazaEntity[]
+            let sedes: SedesEntity[]
 
-        const consultaPerros: FindManyOptions<RazaEntity>={
-            where: [{
-                especie: 1
-            }]}
+            const consultaPerros: FindManyOptions<RazaEntity> = {
+                where: [{
+                    especie: 1
+                }]
+            }
             razasPerros = await this._razaService.obtenerRazasPorEspecie(consultaPerros)
 
-        const consultaGatos: FindManyOptions<RazaEntity>={
-            where: [{
-                especie: 2
-            }]}
-        razasGatos = await this._razaService.obtenerRazasPorEspecie(consultaGatos)
-
-
-        sedes = await this._sedeService.obtenerRol()
-
-
-        if (accion && nombre) {
-            switch (accion) {
-                case 'actualizar':
-                    mensaje = `Registro ${nombre} actualizado`;
-                    clase = 'alert alert-danger';
-                    break;
-                case 'borrar':
-                    mensaje = `Registro ${nombre} eliminado`;
-                    clase = 'alert alert-info';
-                    break;
-                case 'crear':
-                    mensaje = `Registro ${nombre} creado`;
-                    clase = 'alert alert-success';
-                    break;
+            const consultaGatos: FindManyOptions<RazaEntity> = {
+                where: [{
+                    especie: 2
+                }]
             }
+            razasGatos = await this._razaService.obtenerRazasPorEspecie(consultaGatos)
+
+
+            sedes = await this._sedeService.obtenerRol()
+
+
+            if (accion && nombre) {
+                switch (accion) {
+                    case 'actualizar':
+                        mensaje = `Registro ${nombre} actualizado`;
+                        clase = 'alert alert-danger';
+                        break;
+                    case 'borrar':
+                        mensaje = `Registro ${nombre} eliminado`;
+                        clase = 'alert alert-info';
+                        break;
+                    case 'crear':
+                        mensaje = `Registro ${nombre} creado`;
+                        clase = 'alert alert-success';
+                        break;
+                }
+            }
+
+            let mascotas: MascotaEntity[];
+
+            if (busqueda) {
+
+                const consulta: FindManyOptions<MascotaEntity> = {
+                    where: [
+                        {
+                            nombreMascota: Like(`%${busqueda}%`)
+                        },
+                        {
+                            generoMascota: Like(`%${busqueda}%`)
+                        },
+                        {
+                            //usuario: sesion.idUsuario,
+                            edadMascota: Like(`%${busqueda}%`)
+                        },
+                        {
+                            //usuario: sesion.idUsuario,
+                            tamanioMascota: Like(`%${busqueda}%`)
+                        },
+
+                    ]
+                };
+
+                mascotas = await this._mascotaService.buscar(consulta);
+            } else {
+
+                /* const consulta: FindManyOptions<MascotaEntity> = {
+                     where: [{usuario: sesion.idUsuario}]
+                 }*/
+                mascotas = await this._mascotaService.buscar();
+            }
+
+
+            response.render('lista-mascotas',
+                {
+                    arregloMascotas: mascotas,
+                    mensaje: mensaje,
+                    clase: clase,
+                    usuario: usuario,
+                    arregloRazasPerros: razasPerros,
+                    arregloRazasGatos: razasGatos,
+                    arregloSedes: sedes,
+                })
+        }else{
+            response.redirect('/login')
         }
 
-        let mascotas: MascotaEntity[];
+    }
 
-        if (busqueda) {
 
-            const consulta: FindManyOptions<MascotaEntity> = {
-                where: [
-                    {
-                        nombreMascota: Like(`%${busqueda}%`)
-                    },
-                    {
-                        generoMascota: Like(`%${busqueda}%`)
-                    },
-                    {
-                        //usuario: sesion.idUsuario,
-                        edadMascota: Like(`%${busqueda}%`)
-                    },
-                    {
-                        //usuario: sesion.idUsuario,
-                        tamanioMascota: Like(`%${busqueda}%`)
-                    },
+    @Get('inicio-usuario')
+    async mascotaUsuario(
+        @Res() response,
+        @Query('accion') accion: string,
+        @Query('nombre') nombre: string,
+        @Query('busqueda') busqueda: string,
+        @Session() sesion
+    ) {
 
-                ]
-            };
+        console.log(sesion)
+        if (sesion.rol==='usuario') {
 
-            mascotas = await this._mascotaService.buscar(consulta);
-        } else {
+            let mensaje = undefined;
+            let clase = undefined;
 
-            /* const consulta: FindManyOptions<MascotaEntity> = {
-                 where: [{usuario: sesion.idUsuario}]
-             }*/
-            mascotas = await this._mascotaService.buscar();
+            let usuario: UsuarioEntity;
+
+            usuario = await this._usuarioService.buscarPorId(sesion.idUsuario)
+
+            let razasPerros: RazaEntity[]
+            let razasGatos: RazaEntity[]
+            let sedes: SedesEntity[]
+
+            const consultaPerros: FindManyOptions<RazaEntity> = {
+                where: [{
+                    especie: 1
+                }]
+            }
+            razasPerros = await this._razaService.obtenerRazasPorEspecie(consultaPerros)
+
+            const consultaGatos: FindManyOptions<RazaEntity> = {
+                where: [{
+                    especie: 2
+                }]
+            }
+            razasGatos = await this._razaService.obtenerRazasPorEspecie(consultaGatos)
+
+
+            sedes = await this._sedeService.obtenerRol()
+
+
+            if (accion && nombre) {
+                switch (accion) {
+                    case 'actualizar':
+                        mensaje = `Registro ${nombre} actualizado`;
+                        clase = 'alert alert-danger';
+                        break;
+                    case 'borrar':
+                        mensaje = `Registro ${nombre} eliminado`;
+                        clase = 'alert alert-info';
+                        break;
+                    case 'crear':
+                        mensaje = `Registro ${nombre} creado`;
+                        clase = 'alert alert-success';
+                        break;
+                }
+            }
+
+            let mascotas: MascotaEntity[];
+
+            if (busqueda) {
+
+                const consulta: FindManyOptions<MascotaEntity> = {
+                    where: [
+                        {
+                            nombreMascota: Like(`%${busqueda}%`)
+                        },
+                        {
+                            generoMascota: Like(`%${busqueda}%`)
+                        },
+                        {
+                            //usuario: sesion.idUsuario,
+                            edadMascota: Like(`%${busqueda}%`)
+                        },
+                        {
+                            //usuario: sesion.idUsuario,
+                            tamanioMascota: Like(`%${busqueda}%`)
+                        },
+
+                    ]
+                };
+
+                mascotas = await this._mascotaService.buscar(consulta);
+            } else {
+
+                /* const consulta: FindManyOptions<MascotaEntity> = {
+                     where: [{usuario: sesion.idUsuario}]
+                 }*/
+                mascotas = await this._mascotaService.buscar();
+            }
+
+
+            response.render('lista-mascotas-usuario',
+                {
+                    arregloMascotas: mascotas,
+                    mensaje: mensaje,
+                    clase: clase,
+                    usuario: usuario,
+                    arregloRazasPerros: razasPerros,
+                    arregloRazasGatos: razasGatos,
+                    arregloSedes: sedes,
+                })
+        }else{
+            response.redirect('/login')
         }
-
-
-
-        response.render('lista-mascotas',
-            {
-                arregloMascotas: mascotas,
-                mensaje: mensaje,
-                clase: clase,
-                usuario: usuario,
-                arregloRazasPerros: razasPerros,
-                arregloRazasGatos: razasGatos,
-                arregloSedes: sedes,
-            })
 
     }
 
@@ -127,21 +241,25 @@ export class MascotaController {
 
     @Get('crear-mascota')
     async mostrarCrearMascota(
-        @Res() response
+        @Res() response,
+        @Session() sesion
     ) {
+        if(sesion.rol==='administrador') {
+            let razas: RazaEntity[]
+            let sedes: SedesEntity[]
 
-        let razas:RazaEntity[]
-        let sedes:SedesEntity[]
+            razas = await this._razaService.obtenerRaza()
+            sedes = await this._sedeService.obtenerRol()
 
-        razas = await this._razaService.obtenerRaza()
-        sedes = await this._sedeService.obtenerRol()
-
-        response.render(
-            'crear-mascota',{
-                arregloRazas: razas,
-                arregloSedes: sedes,
-            }
-        )
+            response.render(
+                'crear-mascota', {
+                    arregloRazas: razas,
+                    arregloSedes: sedes,
+                }
+            )
+        }else{
+            response.redirect('/login')
+        }
     }
 
     @Post('crear-mascota')
@@ -182,33 +300,36 @@ export class MascotaController {
         @Session() sesion
     ) {
 
-
-        let mensaje = undefined;
-
-
-        if (error) {
-            mensaje = "Datos erroneos";
-        }
-
-        let razas:RazaEntity[]
-        let sedes:SedesEntity[]
-
-        razas = await this._razaService.obtenerRaza()
-        sedes = await this._sedeService.obtenerRol()
+        if(sesion.rol==='administrador') {
+            let mensaje = undefined;
 
 
-        const mascotaActualizar = await this._mascotaService
-            .buscarPorId(Number(idMascota));
-
-        response.render(
-            'crear-mascota', {//ir a la pantalla de crear-usuario
-                mascota: mascotaActualizar,
-                mensaje: mensaje,
-                idMascota: idMascota,
-                arregloRazas: razas,
-                arregloSedes: sedes,
+            if (error) {
+                mensaje = "Datos erroneos";
             }
-        )
+
+            let razas: RazaEntity[]
+            let sedes: SedesEntity[]
+
+            razas = await this._razaService.obtenerRaza()
+            sedes = await this._sedeService.obtenerRol()
+
+
+            const mascotaActualizar = await this._mascotaService
+                .buscarPorId(Number(idMascota));
+
+            response.render(
+                'crear-mascota', {//ir a la pantalla de crear-usuario
+                    mascota: mascotaActualizar,
+                    mensaje: mensaje,
+                    idMascota: idMascota,
+                    arregloRazas: razas,
+                    arregloSedes: sedes,
+                }
+            )
+        }else{
+            response.redirect('/login')
+        }
 
     }
 
@@ -249,6 +370,24 @@ export class MascotaController {
 
         response.redirect('/mascota/inicio' + parametrosConsulta);
     }
+
+
+
+    @Get('ver-detalle-mascota/:idMascota')
+    async mostrarDetalleMascota(
+        @Res() response,
+        @Param('idMascota') idMascota,
+        @Session() sesion,
+    ){
+        const mascota = await this._mascotaService.buscarPorIdDetalle(+idMascota);
+
+        console.log(mascota)
+        response.render('detalle-mascotas',
+            {mascota:mascota}
+            )
+
+    }
+
 
 }
 

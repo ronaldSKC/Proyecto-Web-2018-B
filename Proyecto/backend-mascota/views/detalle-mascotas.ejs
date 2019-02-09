@@ -1,0 +1,124 @@
+<% const existeMensaje = typeof mensaje !== "undefined"%>
+<%- include('header'); %>
+<br><br><br>
+
+
+<% if (existeMensaje){%>
+
+    <div class="<%= clase %>" role="alert">
+            <span class="font-weight-bold">
+                MENSAJE:
+            </span> : <%= mensaje %>
+    </div>
+<%}%>
+
+<!-- ##########################AQUI TENEMOS LA PRIMERA DIVISION DEL CONTENEDOR########################### -->
+
+
+<div class="container" align="center">
+    <div class="row" align="center">
+        <div class="col-lg-6" align="center">
+            <br>
+            <h2 align="center"><%=mascota.nombreMascota%></h2><br>
+            <div class="row" align="center">
+                <div class="col-sm-12" align="center" >
+                    <div class="card" style="width: 80%;">
+                        <img src="<%=mascota.fotoMascota %>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">
+                            <div><%=mascota.descripcionMascota%></div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-3">
+                    <a href="/mascota/inicio">
+                        <button class="btn btn-outline-info btn-block espaciado-boton">Regresar</button>
+                    </a>
+                </div>
+                <div class="col-lg-2"></div>
+                <div class="col-lg-3">
+                    <a href="/adopcion/inicio">
+                        <button class="btn btn-outline-success btn-block espaciado-boton">Adoptar</button>
+                    </a>
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+        </div>
+
+        <div class="col-lg-6" align="center">
+            <br><br><br>
+            <div class="container" align="center">
+                <div class="row" align="center">
+                    <div class="col-lg-5" align="center">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <p class="card-text">
+                                <div><h4>Raza:<h6><%=mascota.raza.nombreRaza%></h6></h4></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-5" align="center">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <p class="card-text">
+                                <div><h4>Género:<h6><%=mascota.generoMascota%></h6></h4></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row" >
+                    <div class="col-lg-5" align="center">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <p class="card-text">
+                                <div><h4>Edad:<h6><%=mascota.edadMascota%> meses</h6></h4></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-5" align="center">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <p class="card-text">
+                                <div><h4>Tamaño:<h6><%=mascota.tamanioMascota%> centímetros</h6></h4></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row" >
+                    <div class="col-lg-5" align="center">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <p class="card-text">
+                                <div><h4>Color:<h6><%=mascota.colorMascota%></h6></h4></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-5" align="center">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <p class="card-text">
+                                <div><h4>Sede:<h6><%=mascota.sede.ciudad%></h6>
+                                        <h6>calle principal: <%=mascota.sede.callePrincipal%></h6>
+                                        <h6> calle secundaria: <%=mascota.sede.calleSecundaria%></h6></h4></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+

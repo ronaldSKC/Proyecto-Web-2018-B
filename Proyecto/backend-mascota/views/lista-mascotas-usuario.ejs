@@ -102,11 +102,8 @@
                 <div class="col-lg-12" align="center">
 
                     <div class="btn-group-vertical col-lg-12" role="group" aria-label="Button group with nested dropdown">
-                        <button type="button" class="btn btn-outline-info btn-block">Aceptar/Negar solicitudes</button>
-                        <button type="button" class="btn btn-outline-info btn-block" data-toggle="modal" data-target="#exampleModal">Registrar mascota</button>
-                        <button type="button" class="btn btn-outline-info btn-block"> Ingresar nueva sede</button>
-                        <a href="/usuario/inicio"> <button type="button" class="btn btn-outline-info btn-block" data> Administrar usuario</button>
-                        </a>
+                        <button type="button" class="btn btn-outline-info btn-block">Solicitar adopción</button>
+
                     </div>
                 </div>
             </div>
@@ -166,41 +163,28 @@
                 <% arregloMascotas.forEach( (mascota)=> { %>
                 <div class="col-lg-4">
                     <table class="table table-hover" content="center" >
+                        <!-- tr -> table row -->
                         <tr>
+                            <!-- th -> table header -->
                             <td height="250"><img width="80%" height="100%" src="<%=mascota.fotoMascota %>" alt=""></td>
                         </tr>
                         <tr>
+                            <!-- th -> table header -->
+
                             <td><%=mascota.nombreMascota %></td>
                         </tr>
                         <tr>
+                            <!-- th -> table header -->
 
                             <td><%=mascota.descripcionMascota%></td>
                         </tr>
 
                         <tr><td>
                                 <div class="row">
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-12">
 
-                                        <form action="/mascota/eliminar-mascota/<%= mascota.idMascota %>" method="POST">
-                                            <button  class="btn btn-outline-danger  espaciado-boton" type="submit"
-                                                     type="submit">X</button>
-                                        </form>
-
-                                    </div>
-
-                                    <div class="col-lg-4">
-
-                                        <a href="/mascota/actualizar-mascota/<%= mascota.idMascota %>">
-                                            <button  class="btn btn-outline-success  espaciado-boton" type="submit">Actualizar</button>
-
-                                        </a>
-
-                                    </div>
-                                    <div class="col-lg-6">
-
-
-                                        <a href="/mascota/ver-detalle-mascota/<%= mascota.idMascota %>">
-                                            <button  class="btn btn-outline-info  espaciado-boton" type="submit"> Ver Mascota</button>
+                                        <a href="/mascota/inicio-usuario/">
+                                            <button  class="btn btn-outline-info btn-block  espaciado-boton" type="submit"> Ver Mascota</button>
 
                                         </a>
 
